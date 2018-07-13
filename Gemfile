@@ -15,7 +15,7 @@ gem 'devise'
 gem 'bootstrap'
 gem 'haml-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'pg'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -35,6 +35,7 @@ group :test do
 end
 
 group :production do
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 
