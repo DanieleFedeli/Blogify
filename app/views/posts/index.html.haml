@@ -1,0 +1,23 @@
+%h1.text-center
+  Post da revisionare ed accettare
+-@posts.each do |pp|
+  .container.border.post_container
+    .row.title_container.my-2.border-bottom.py-2
+      %h3.mx-auto
+        =pp.title
+    .row.tag_container
+      =pp.tag_list
+    .row.body_container
+      .col-lg-12
+        =pp.body
+    .row.border-top
+      .col-6
+        %h6.my-auto.py-2
+          Autore:
+          =link_to pp.user.username, pp.user
+      .col-6.text-right
+        %h6.my-auto.py-2.created_at
+          Pubished at
+          =pp.created_at.strftime("%d %m %Y")
+    
+= link_to 'New Pending post', new_pending_post_path
