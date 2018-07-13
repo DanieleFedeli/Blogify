@@ -1,0 +1,15 @@
+= form_for @pending_post do |f|
+  - if @pending_post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pending_post.errors.count, "error")} prohibited this pending_post from being saved:"
+      %ul
+        - @pending_post.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    =f.label 'Titolo'
+    =f.text_field 'title', class: 'form-control'
+  .form-group
+    =f.label 'Testo'
+    =f.text_area  'body', class: 'form-control'
+  .form-group
+    = f.submit 'Save', class: 'btn'
