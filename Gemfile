@@ -15,9 +15,9 @@ gem 'devise'
 gem 'bootstrap'
 gem 'haml-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'sqlite3'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
