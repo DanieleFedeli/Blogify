@@ -9,8 +9,7 @@
               = value
         %h2 Sign in utente
         %p Inserisci la tua email e password
-      = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'Login'}) do |f|
-        
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'Login'}) do |f| 
         .form-group
           =f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
         .form-group
