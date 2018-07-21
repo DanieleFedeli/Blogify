@@ -16,7 +16,7 @@ gem 'bootstrap'
 gem 'haml-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-facebook'
-
+gem 'jquery-rails'
 
 
 group :development, :test do

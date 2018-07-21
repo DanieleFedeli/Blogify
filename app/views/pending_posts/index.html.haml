@@ -1,8 +1,11 @@
 %h1.text-center
   Post da revisionare ed accettare
+-if @pending_posts.count < 1
+  %h3.text-center
+    Non ci sono post al momento
 -@pending_posts.each do |pp|
-  .container.border.post_container
-    .row.title_container.my-2.border-bottom.py-2
+  .container.border-top.border-bottom.post_container
+    .row.title_container.my-2.border-bottom
       %h3.mx-auto
         =pp.title
     .row.tag_container
@@ -10,20 +13,20 @@
     .row.body_container
       .col-lg-12
         =pp.body
-    .row.border-top
+    .row.border-top.footer_post
       .col-6
-        %h6.my-auto.py-2
-          Autore:
-          =link_to pp.user.username, pp.user
-      .col-6.text-right
-        %h6.my-auto.py-2.created_at
-          Inviato il 
-          =pp.created_at.strftime("%d %m %Y")
-    .row.accept_container.border-top
-      .col-6.text-right
-        =link_to 'Accetta post', action: "accept", pending_post_id: pp.id
-      .col-6.text-left
-        =link_to 'Rifiuta post', pp, method: :delete
-
-      
-= link_to 'New Pending post', new_pending_post_path
+        .row
+          .col-6  
+            %h6.my-auto.py-2
+              Autore:
+              =link_to pp.user.username, pp.user
+          .col-6.text-right.my-auto
+            =link_to 'Accetta post', action: "accept", pending_post_id: pp.id
+      .col-6
+        .row
+          .col-6.text-left.my-auto
+            =link_to 'Rifiuta post', pp, method: :delete
+          .col-6.text-right
+            %h6.my-auto.py-2.created_at
+              Inviato il 
+              =pp.created_at.strftime("%d %m %Y")

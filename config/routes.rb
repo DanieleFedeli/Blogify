@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'posts#index'
   
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
+  
   resources :users do
     resources :pending_posts
   end
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
     resources :comments
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
