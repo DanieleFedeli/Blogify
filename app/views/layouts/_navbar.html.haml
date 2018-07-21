@@ -14,9 +14,9 @@
           %li.nav-item.list-inline.item
             =link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link'
         -else
-          %li.nav-item.list-inline.item.active
+          %li.nav-item.list-inline.item
             =link_to 'Sign in', new_user_session_path, class: 'nav-link'
-          %li.nav-item.list-inline.item.active
+          %li.nav-item.list-inline.item
             =link_to 'Sign up', new_user_registration_path, class: 'nav-link'
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
