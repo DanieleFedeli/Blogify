@@ -17270,3 +17270,620 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 82ms (Views: 79.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-21 16:49:26 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/daniele/.rvm/gems/ruby-2.5.1/gems/web-console-3.6.2/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:1
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 2], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 2], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  [1m[36mActsAsTaggableOn::Tagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 3], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 3], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  Rendered posts/index.html.haml within layouts/application (99.1ms)
+  Rendered layouts/_navbar.html.haml (12.8ms)
+Completed 200 OK in 426ms (Views: 400.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:49:34 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.4ms)
+  Rendered users/registrations/new.html.haml within layouts/application (15.4ms)
+  Rendered layouts/_navbar.html.haml (4.3ms)
+Completed 200 OK in 61ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:49:54 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/daniele/.rvm/gems/ruby-2.5.1/gems/web-console-3.6.2/lib/web_console/middleware.rb:135
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.0ms)
+  Rendered users/registrations/new.html.haml within layouts/application (11.4ms)
+  Rendered layouts/_navbar.html.haml (7.2ms)
+Completed 200 OK in 326ms (Views: 291.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:50:26 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.5ms)
+  Rendered users/registrations/new.html.haml within layouts/application (13.1ms)
+  Rendered layouts/_navbar.html.haml (7.8ms)
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:50:28 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.3ms)
+  Rendered users/registrations/new.html.haml within layouts/application (12.9ms)
+  Rendered layouts/_navbar.html.haml (7.0ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:50:28 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.8ms)
+  Rendered users/registrations/new.html.haml within layouts/application (14.5ms)
+  Rendered layouts/_navbar.html.haml (13.3ms)
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:52:06 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.7ms)
+  Rendered users/registrations/new.html.haml within layouts/application (21.9ms)
+  Rendered layouts/_navbar.html.haml (4.7ms)
+Completed 200 OK in 85ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:53:24 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.9ms)
+  Rendered users/registrations/new.html.haml within layouts/application (19.9ms)
+  Rendered layouts/_navbar.html.haml (6.7ms)
+Completed 200 OK in 80ms (Views: 79.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:53:46 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.5ms)
+  Rendered users/registrations/new.html.haml within layouts/application (21.0ms)
+  Rendered layouts/_navbar.html.haml (11.4ms)
+Completed 200 OK in 81ms (Views: 79.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:53:54 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.0ms)
+  Rendered users/registrations/new.html.haml within layouts/application (18.0ms)
+  Rendered layouts/_navbar.html.haml (5.4ms)
+Completed 200 OK in 3490ms (Views: 3489.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:54:07 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.4ms)
+  Rendered users/registrations/new.html.haml within layouts/application (16.9ms)
+  Rendered layouts/_navbar.html.haml (3.9ms)
+Completed 200 OK in 1889ms (Views: 1888.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 16:54:15 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.1ms)
+  Rendered users/registrations/new.html.haml within layouts/application (16.3ms)
+  Rendered layouts/_navbar.html.haml (7.4ms)
+Completed 200 OK in 106ms (Views: 105.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:02:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.3ms)
+  Rendered users/sessions/new.html.haml within layouts/application (22.7ms)
+  Rendered layouts/_navbar.html.haml (6.2ms)
+Completed 200 OK in 78ms (Views: 74.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook/callback?code=AQCt5BXO4PvzDyBo4AXZ6Nljn6QOlwjUz6qNM16Ue3XrnE1O_sMTt136bQqYrLPbSTznNJg6m_u_4q8a9BrPc4Zh1ICAKK5kv8VV44nCzq-xlzCG6kcbilUVPuwUp1JyWRreBdemVLx_QQcxgaLvVuQKpJ8DT-X4g-TUdknrws7vDxn_UuKzek1nsqhLAGeXUesR3de0s7LxjuJ9RAJIkjyp_04jMvQjlja7vpPX7K8yuxITfU9loZ-FMRjix7aBqsIyhQf43YI09d2pm7_Sy4_PD3fOWgIBat3CZdRmR-UHfyXHRRmw4Nbi959S4cw8efHOgNCd0YQYSMeoc5ZxgB2u&state=6bef049681b5e0253cb06d1780be113f01c84cae422d1bad" for 127.0.0.1 at 2018-07-21 17:02:49 +0200
+Processing by Users::OmniauthController#failure as HTML
+  Parameters: {"code"=>"AQCt5BXO4PvzDyBo4AXZ6Nljn6QOlwjUz6qNM16Ue3XrnE1O_sMTt136bQqYrLPbSTznNJg6m_u_4q8a9BrPc4Zh1ICAKK5kv8VV44nCzq-xlzCG6kcbilUVPuwUp1JyWRreBdemVLx_QQcxgaLvVuQKpJ8DT-X4g-TUdknrws7vDxn_UuKzek1nsqhLAGeXUesR3de0s7LxjuJ9RAJIkjyp_04jMvQjlja7vpPX7K8yuxITfU9loZ-FMRjix7aBqsIyhQf43YI09d2pm7_Sy4_PD3fOWgIBat3CZdRmR-UHfyXHRRmw4Nbi959S4cw8efHOgNCd0YQYSMeoc5ZxgB2u", "state"=>"6bef049681b5e0253cb06d1780be113f01c84cae422d1bad"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:02:49 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.5ms)
+  Rendered users/registrations/new.html.haml within layouts/application (18.2ms)
+  Rendered layouts/_navbar.html.haml (4.7ms)
+Completed 200 OK in 84ms (Views: 82.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:02:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.9ms)
+  Rendered users/sessions/new.html.haml within layouts/application (19.4ms)
+  Rendered layouts/_navbar.html.haml (8.2ms)
+Completed 200 OK in 97ms (Views: 95.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:03:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.5ms)
+  Rendered users/sessions/new.html.haml within layouts/application (20.0ms)
+  Rendered layouts/_navbar.html.haml (9.9ms)
+Completed 200 OK in 94ms (Views: 93.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:03:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (9.8ms)
+  Rendered users/sessions/new.html.haml within layouts/application (23.9ms)
+  Rendered layouts/_navbar.html.haml (9.3ms)
+Completed 200 OK in 97ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:04:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.5ms)
+  Rendered users/sessions/new.html.haml within layouts/application (18.0ms)
+  Rendered layouts/_navbar.html.haml (8.4ms)
+Completed 200 OK in 98ms (Views: 96.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:04:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.1ms)
+  Rendered users/sessions/new.html.haml within layouts/application (19.4ms)
+  Rendered layouts/_navbar.html.haml (9.2ms)
+Completed 200 OK in 109ms (Views: 107.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.2ms)
+  Rendered users/sessions/new.html.haml within layouts/application (16.8ms)
+  Rendered layouts/_navbar.html.haml (11.3ms)
+Completed 200 OK in 89ms (Views: 87.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:22 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.1ms)
+  Rendered users/sessions/new.html.haml within layouts/application (15.7ms)
+  Rendered layouts/_navbar.html.haml (7.8ms)
+Completed 200 OK in 88ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:23 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (8.1ms)
+  Rendered users/sessions/new.html.haml within layouts/application (21.7ms)
+  Rendered layouts/_navbar.html.haml (10.3ms)
+Completed 200 OK in 95ms (Views: 93.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:25 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (13.9ms)
+  Rendered users/sessions/new.html.haml within layouts/application (27.9ms)
+  Rendered layouts/_navbar.html.haml (11.1ms)
+Completed 200 OK in 98ms (Views: 96.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:36 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.9ms)
+  Rendered users/sessions/new.html.haml within layouts/application (14.3ms)
+  Rendered layouts/_navbar.html.haml (7.5ms)
+Completed 200 OK in 80ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.1ms)
+  Rendered users/sessions/new.html.haml within layouts/application (14.9ms)
+  Rendered layouts/_navbar.html.haml (8.7ms)
+Completed 200 OK in 93ms (Views: 91.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.0ms)
+  Rendered users/sessions/new.html.haml within layouts/application (18.3ms)
+  Rendered layouts/_navbar.html.haml (9.3ms)
+Completed 200 OK in 82ms (Views: 80.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (8.3ms)
+  Rendered users/sessions/new.html.haml within layouts/application (19.1ms)
+  Rendered layouts/_navbar.html.haml (7.0ms)
+Completed 200 OK in 90ms (Views: 88.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:05:52 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.9ms)
+  Rendered users/registrations/new.html.haml within layouts/application (13.5ms)
+  Rendered layouts/_navbar.html.haml (10.6ms)
+Completed 200 OK in 96ms (Views: 94.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:05:59 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.4ms)
+  Rendered users/sessions/new.html.haml within layouts/application (18.4ms)
+  Rendered layouts/_navbar.html.haml (7.9ms)
+Completed 200 OK in 104ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:06:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9bgymovonoKq8DvyfvvxuGj6gr7d0PPkDYIJKjt2wLP+UaSFekMpy3rbUJt53Q8aJn4uvZoUak/vaeOYm4sv/Q==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9bgymovonoKq8DvyfvvxuGj6gr7d0PPkDYIJKjt2wLP+UaSFekMpy3rbUJt53Q8aJn4uvZoUak/vaeOYm4sv/Q==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+Unpermitted parameter: :email
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (2.5ms)
+  Rendered users/sessions/new.html.haml within layouts/application (11.0ms)
+  Rendered layouts/_navbar.html.haml (10.0ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:07:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.7ms)
+  Rendered users/sessions/new.html.haml within layouts/application (21.0ms)
+  Rendered layouts/_navbar.html.haml (7.0ms)
+Completed 200 OK in 107ms (Views: 105.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:07:47 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.3ms)
+  Rendered users/registrations/new.html.haml within layouts/application (9.3ms)
+  Rendered layouts/_navbar.html.haml (6.1ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:07:59 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.0ms)
+  Rendered users/registrations/new.html.haml within layouts/application (19.6ms)
+  Rendered layouts/_navbar.html.haml (8.1ms)
+Completed 200 OK in 94ms (Views: 92.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:04 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.9ms)
+  Rendered users/registrations/new.html.haml within layouts/application (21.6ms)
+  Rendered layouts/_navbar.html.haml (12.6ms)
+Completed 200 OK in 106ms (Views: 104.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:05 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.6ms)
+  Rendered users/registrations/new.html.haml within layouts/application (17.1ms)
+  Rendered layouts/_navbar.html.haml (9.0ms)
+Completed 200 OK in 87ms (Views: 86.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:06 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.5ms)
+  Rendered users/registrations/new.html.haml within layouts/application (23.3ms)
+  Rendered layouts/_navbar.html.haml (6.1ms)
+Completed 200 OK in 98ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:06 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.2ms)
+  Rendered users/registrations/new.html.haml within layouts/application (21.5ms)
+  Rendered layouts/_navbar.html.haml (6.4ms)
+Completed 200 OK in 99ms (Views: 96.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:45 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.7ms)
+  Rendered users/registrations/new.html.haml within layouts/application (22.3ms)
+  Rendered layouts/_navbar.html.haml (8.6ms)
+Completed 200 OK in 81ms (Views: 79.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:47 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.8ms)
+  Rendered users/registrations/new.html.haml within layouts/application (17.4ms)
+  Rendered layouts/_navbar.html.haml (4.9ms)
+Completed 200 OK in 91ms (Views: 88.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:08:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.3ms)
+  Rendered users/sessions/new.html.haml within layouts/application (19.0ms)
+  Rendered layouts/_navbar.html.haml (5.3ms)
+Completed 200 OK in 98ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:48 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.8ms)
+  Rendered users/registrations/new.html.haml within layouts/application (24.0ms)
+  Rendered layouts/_navbar.html.haml (13.0ms)
+Completed 200 OK in 114ms (Views: 112.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:08:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.7ms)
+  Rendered users/sessions/new.html.haml within layouts/application (19.1ms)
+  Rendered layouts/_navbar.html.haml (13.8ms)
+Completed 200 OK in 106ms (Views: 104.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:49 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (8.7ms)
+  Rendered users/registrations/new.html.haml within layouts/application (24.8ms)
+  Rendered layouts/_navbar.html.haml (8.7ms)
+Completed 200 OK in 100ms (Views: 98.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:08:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.2ms)
+  Rendered users/sessions/new.html.haml within layouts/application (20.6ms)
+  Rendered layouts/_navbar.html.haml (9.1ms)
+Completed 200 OK in 97ms (Views: 96.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:49 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.7ms)
+  Rendered users/registrations/new.html.haml within layouts/application (14.5ms)
+  Rendered layouts/_navbar.html.haml (14.1ms)
+Completed 200 OK in 85ms (Views: 83.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:52 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.8ms)
+  Rendered users/registrations/new.html.haml within layouts/application (19.9ms)
+  Rendered layouts/_navbar.html.haml (5.7ms)
+Completed 200 OK in 95ms (Views: 93.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:08:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.9ms)
+  Rendered users/sessions/new.html.haml within layouts/application (18.9ms)
+  Rendered layouts/_navbar.html.haml (6.6ms)
+Completed 200 OK in 111ms (Views: 109.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:08:52 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.8ms)
+  Rendered users/registrations/new.html.haml within layouts/application (21.3ms)
+  Rendered layouts/_navbar.html.haml (8.5ms)
+Completed 200 OK in 109ms (Views: 107.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:09:05 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.9ms)
+  Rendered users/registrations/new.html.haml within layouts/application (19.9ms)
+  Rendered layouts/_navbar.html.haml (6.9ms)
+Completed 200 OK in 87ms (Views: 84.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:07 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.1ms)
+  Rendered users/sessions/new.html.haml within layouts/application (12.6ms)
+  Rendered layouts/_navbar.html.haml (6.5ms)
+Completed 200 OK in 75ms (Views: 73.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:09 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.9ms)
+  Rendered users/sessions/new.html.haml within layouts/application (15.1ms)
+  Rendered layouts/_navbar.html.haml (8.3ms)
+Completed 200 OK in 75ms (Views: 72.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (3.3ms)
+  Rendered users/sessions/new.html.haml within layouts/application (17.1ms)
+  Rendered layouts/_navbar.html.haml (6.7ms)
+Completed 200 OK in 85ms (Views: 83.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.8ms)
+  Rendered users/sessions/new.html.haml within layouts/application (20.6ms)
+  Rendered layouts/_navbar.html.haml (6.6ms)
+Completed 200 OK in 82ms (Views: 81.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.8ms)
+  Rendered users/sessions/new.html.haml within layouts/application (18.6ms)
+  Rendered layouts/_navbar.html.haml (5.7ms)
+Completed 200 OK in 93ms (Views: 91.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:09:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.5ms)
+  Rendered users/sessions/new.html.haml within layouts/application (21.1ms)
+  Rendered layouts/_navbar.html.haml (8.2ms)
+Completed 200 OK in 101ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:10:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (8.5ms)
+  Rendered users/sessions/new.html.haml within layouts/application (24.1ms)
+  Rendered layouts/_navbar.html.haml (6.0ms)
+Completed 200 OK in 101ms (Views: 98.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:10:23 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (7.5ms)
+  Rendered users/registrations/new.html.haml within layouts/application (19.6ms)
+  Rendered layouts/_navbar.html.haml (6.2ms)
+Completed 200 OK in 84ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-21 17:10:24 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (6.4ms)
+  Rendered users/sessions/new.html.haml within layouts/application (20.2ms)
+  Rendered layouts/_navbar.html.haml (7.7ms)
+Completed 200 OK in 104ms (Views: 100.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:10:24 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (5.9ms)
+  Rendered users/registrations/new.html.haml within layouts/application (26.5ms)
+  Rendered layouts/_navbar.html.haml (9.3ms)
+Completed 200 OK in 103ms (Views: 101.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-21 17:10:25 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.haml:8
+  Rendered users/index.html.haml within layouts/application (8.2ms)
+  Rendered layouts/_navbar.html.haml (6.7ms)
+Completed 200 OK in 86ms (Views: 84.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-07-21 17:10:26 +0200
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:1
+  [1m[36mActsAsTaggableOn::Tagging Load (0.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 2], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 2], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 3], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 3], ["taggable_type", "Post"]]
+  ↳ app/views/posts/index.html.haml:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.haml:15
+  Rendered posts/index.html.haml within layouts/application (64.5ms)
+  Rendered layouts/_navbar.html.haml (8.2ms)
+Completed 200 OK in 137ms (Views: 114.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-21 17:10:30 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.haml within layouts/application
+  Rendered users/shared/_links.html.haml (4.6ms)
+  Rendered users/registrations/new.html.haml within layouts/application (22.9ms)
+  Rendered layouts/_navbar.html.haml (16.5ms)
+Completed 200 OK in 107ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2018-07-21 17:10:31 +0200
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2018-07-21 17:10:31 +0200
