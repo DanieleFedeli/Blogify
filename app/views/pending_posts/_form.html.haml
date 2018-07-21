@@ -6,10 +6,14 @@
         - @pending_post.errors.full_messages.each do |message|
           %li= message
   .form-group
-    =f.label 'Titolo'
+    %h3.text-center
+      Titolo
     =f.text_field 'title', class: 'form-control'
-  .form-group
-    =f.label 'Testo'
-    =f.text_area  'body', class: 'form-control'
-  .form-group
-    = f.submit 'Save', class: 'btn'
+  .form-group.text-center
+    %span
+      Testo
+      %em
+        (minimo 128 caratteri)
+    =f.text_area  'body', class: 'form-control', rows: '20'
+  .form-group.text-center
+    = f.submit 'Save', class: 'btn btn-primary'

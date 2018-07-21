@@ -1,9 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:destroy]
+  before_action :power_user, only: [:destroy]
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:query]
+      @posts = Post.where('title LIKE ?', "%#{params[:query]}")
+    else
+      @posts = Post.all
+    end
+    
   end
 
   # GET /posts/1
@@ -29,6 +36,10 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :body)
+      params.require(:post).permit(:user_id, :body, :query)
+    end
+
+    def power_user
+      redirect_to posts_path unless current_user.admin?
     end
 end

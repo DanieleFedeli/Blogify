@@ -1,6 +1,7 @@
 class PendingPostsController < ApplicationController
   before_action :set_pending_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
+  before_action :power_user, only: [:index, :accept, :destroy]
   # GET /pending_posts
   # GET /pending_posts.json
   def index
@@ -38,7 +39,6 @@ class PendingPostsController < ApplicationController
   end
 
   def accept
-    puts "TO PARAM #{@pending_post.to_param}"
     @pending_post = PendingPost.find(params[:pending_post_id])
     @pending_post.user.posts.create! @pending_post.attributes
     @pending_post.destroy!
@@ -81,5 +81,9 @@ class PendingPostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pending_post_params
       params.require(:pending_post).permit(:title, :body)
+    end
+
+    def power_user
+      redirect_to posts_path unless current_user.admin?
     end
 end

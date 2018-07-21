@@ -5,7 +5,9 @@
 *= require_tree
 */
 @import 'bootstrap';
-
+#postcreate{
+  font-weight: 500;
+}
 body{ 
   background-image: image_url('retina_wood.png'); 
   background-repeat:repeat; 
