@@ -9,7 +9,7 @@
       %h3.mx-auto
         =pp.title
     .row.tag_container
-      =pp.tag_list
+      =raw pp.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')
     .row.body_container
       .col-lg-12
         =pp.body

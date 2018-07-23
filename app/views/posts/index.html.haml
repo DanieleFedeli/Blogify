@@ -1,21 +1,36 @@
--@posts.each do |pp|
-  .container.border-top.border-bottom.post_container
-    .row.title_container.my-2.border-bottom
-      %h3.mx-auto
-        =link_to pp.title, post_path(pp.id)
-    .row.tag_container
-      =pp.tag_list
-    .row.body_container
-      .col-lg-12
-        =pp.body
-    .row.border-top.footer_post
-      .col-6
-        %h6.my-auto.py-2
-          Autore:
-          =link_to pp.user.username, pp.user
-      .col-6
-        %h6.my-auto.py-2.created_at.text-right
-          Inviato il 
-          =pp.created_at.strftime("%d %m %Y")
+
+.row
+  .col-lg-9.col-md-9.col-xs-9
+    -@posts.each do |pp|
+      .container.border-top.border-bottom.post_container
+        .row.title_container.my-2.border-bottom
+          %h3.mx-auto
+            =link_to pp.title, post_path(pp.id)
+        .row.tag_container.text-center
+          Tags: 
+          =raw pp.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
+        .row.body_container
+          .col-lg-12
+            =raw pp.body
+        .row.border-top.footer_post
+          .col-6
+            %h6.my-auto.py-2
+              Autore:
+              =link_to pp.user.username, pp.user
+          .col-6
+            %h6.my-auto.py-2.created_at.text-right
+              Inviato il 
+              =pp.created_at.strftime("%d %m %Y")
+  .col-lg-3.col-md-3.col-xs-3
+    %h6
+      Tag più usate
+    #tag_cloud
+      - tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class|
+        .single_tag
+          =link_to tag.name, tag_path(tag.name), class: css_class
+          %span.badge.badge-light
+            =tag.count
+      
+    
 
 

@@ -10,6 +10,9 @@
       Titolo
     =f.text_field 'title', class: 'form-control'
   .form-group.text-center
+    =f.label :tags, 'Tags (Seprate dalla virgola)'
+    =f.text_field :tag_list, class: 'form-control', value: f.object.tag_list.to_s
+  .form-group.text-center
     %span
       Testo
       %em
