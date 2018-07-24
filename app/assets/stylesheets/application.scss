@@ -1,10 +1,62 @@
-
-
 /*
 *= require_self
 *= require_tree
 */
+
 @import 'bootstrap';
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#top-nav{
+  transition: all 0.5s;
+}
 #postcreate{
   font-weight: 500;
 }
@@ -21,4 +73,50 @@ body{
   margin: 30px 10% 30px 10%;
   padding: 50px 70px 70px 71px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.overlay{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: black;
+  transition: all 0.5s;
+  z-index: 1;
+  opacity: 0;
+}
+
+.badge-tags{
+  line-height: unset;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#tag_cloud a{
+  display: inline-block;
+}
+
+#tag_cloud_big_div{
+  height: 100%;
+  margin: 0 0 0 0;
+}
+
+#tag_cloud {
+  line-height: 1.6em;
+  .s {
+    color: #444444;
+    font-size: 0.8em; 
+  }
+  .m {
+    color: #666666;
+    font-size: 1.2em; 
+  }
+  .l {
+    color: #777777;
+    font-size: 1.8em; 
+  }
+}
+
+#brand{
+  transition: 0.5s;
 }

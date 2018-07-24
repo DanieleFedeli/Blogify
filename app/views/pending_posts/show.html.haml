@@ -1,6 +1,18 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_pending_post_path(@pending_post)
-\|
-= link_to 'Back', pending_posts_path
+.container.border-top.border-bottom.post_container.main-div
+  .row.title_container.my-2.border-bottom
+    %h3.mx-auto
+      =link_to @pending_post.title, post_path(@pending_post.id)
+  .row.tag_container
+    =raw @pending_post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')
+  .row.body_container
+    .col-lg-12
+      =@pending_post.body
+  .row.border-top.footer_post
+    .col-6
+      %h6.my-auto.py-2
+        Autore:
+        =link_to @pending_post.user.username, @pending_post.user
+    .col-6
+      %h6.my-auto.py-2.created_at.text-right
+        Inviato il 
+        =@pending_post.created_at.strftime("%d %m %Y")

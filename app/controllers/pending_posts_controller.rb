@@ -26,8 +26,8 @@ class PendingPostsController < ApplicationController
   # POST /pending_posts.json
   def create
     @pending_post = current_user.pending_posts.build(pending_post_params)
-
     respond_to do |format|
+      @pending_post.tag_list = pending_post_params[:tag_list]
       if @pending_post.save
         format.html { redirect_to @pending_post, notice: 'Pending post was successfully created.' }
         format.json { render :show, status: :created, location: @pending_post }
@@ -40,9 +40,18 @@ class PendingPostsController < ApplicationController
 
   def accept
     @pending_post = PendingPost.find(params[:pending_post_id])
-    @pending_post.user.posts.create! @pending_post.attributes
+    puts "ALL TAG BEFORE #{@pending_post.all_tags_list}"
+    @pending_post.id = Post.count + 1
+    @post = @pending_post.user.posts.build @pending_post.attributes
+    
+    logger.debug "ALL TAG: #{@pending_post.all_tags_list}"
+    @pending_post.tag_list.map{ |p| @post.tag_list.add(p) }
+    
     @pending_post.destroy!
-
+    @post.save!
+    
+    logger.debug "ALL TAG POST: #{@post.all_tags_list}"
+    
     respond_to do |format|
       format.html {redirect_to pending_posts_path}
     end
@@ -80,7 +89,7 @@ class PendingPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pending_post_params
-      params.require(:pending_post).permit(:title, :body)
+      params.require(:pending_post).permit(:title, :body, :tag_list)
     end
 
     def power_user

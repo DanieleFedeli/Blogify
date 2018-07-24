@@ -1,7 +1,18 @@
-%p#notice= notice
-%p
-  %strong User:
-  = @post.user
-= link_to 'Edit', edit_post_path(@post)
-|
-= link_to 'Back', posts_path
+.container.border-top.border-bottom.post_container
+  .row.title_container.my-2.border-bottom
+    %h3.mx-auto
+      =link_to @post.title, post_path(@post.id)
+  .row.tag_container
+    =raw @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')
+  .row.body_container
+    .col-lg-12
+      =@post.body
+  .row.border-top.footer_post
+    .col-6
+      %h6.my-auto.py-2
+        Autore:
+        =link_to @post.user.username, @post.user
+    .col-6
+      %h6.my-auto.py-2.created_at.text-right
+        Inviato il 
+        =@post.created_at.strftime("%d %m %Y")

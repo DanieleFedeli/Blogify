@@ -9,5 +9,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/navbar'
-    .main-div
+    = render 'layouts/sidemenu'
+    .overlay   
+    #main
       = yield
+   
