@@ -1,8 +1,8 @@
 
 .row
-  .col-lg-9.col-md-9.col-xs-9
+  .col-lg-12.col-md-12.col-xs-12#post_divs
     -@posts.each do |pp|
-      .container.border-top.border-bottom.post_container
+      .container.border-top.border-bottom.post_container.main-div.mx-auto.my-5
         .row.title_container.my-2.border-bottom
           %h3.mx-auto
             =link_to pp.title, post_path(pp.id)
@@ -21,16 +21,3 @@
             %h6.my-auto.py-2.created_at.text-right
               Inviato il 
               =pp.created_at.strftime("%d %m %Y")
-  .col-lg-3.col-md-3.col-xs-3
-    %h6
-      Tag più usate
-    #tag_cloud
-      - tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class|
-        .single_tag
-          =link_to tag.name, tag_path(tag.name), class: css_class
-          %span.badge.badge-light
-            =tag.count
-      
-    
-
-

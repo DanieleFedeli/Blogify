@@ -1,9 +1,9 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "/"} Blogify
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top#top-nav
+  %a.navbar-brand#brand{onclick: "openNav()"} Blogify
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
-    -if current_user.admin?
+    -if current_user && current_user.admin?
       %ul.navbar-nav.mr-auto
         %li.nav-item
           =link_to 'Accetta post', pending_posts_path, class: 'nav-link'

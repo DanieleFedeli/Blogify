@@ -1,10 +1,9 @@
-%h1.text-center
-  Post da revisionare ed accettare
+
 -if @pending_posts.count < 1
   %h3.text-center
     Non ci sono post al momento
 -@pending_posts.each do |pp|
-  .container.border-top.border-bottom.post_container
+  .container.border-top.border-bottom.post_container.main-div.mx-auto
     .row.title_container.my-2.border-bottom
       %h3.mx-auto
         =pp.title
