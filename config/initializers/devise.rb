@@ -261,7 +261,7 @@ Devise.setup do |config|
   if Rails.env.production?
     config.omniauth :facebook, "408791222974805", "7b283596f50b21ec75bf655ceafb1354", callback_url: "https://blogify123.herokuapp.com/users/auth/facebook/callback" 
   else 
-    config.omniauth :facebook, "233562560799469", "2e1c6b5d2a445dcb7782da1da4eafc82", callback_url: "https://localhost:3000/users/auth/facebook/callback" 
+    config.omniauth :facebook, "233562560799469", "2e1c6b5d2a445dcb7782da1da4eafc82", callback_url: "http://localhost:3000/users/auth/facebook/callback" 
   end
 
   # ==> Warden configuration
