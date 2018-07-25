@@ -5,7 +5,7 @@ class PendingPostsController < ApplicationController
   # GET /pending_posts
   # GET /pending_posts.json
   def index
-    @pending_posts = PendingPost.all
+    @pending_posts = PendingPost.page(params[:page]).per(4)
   end
 
   # GET /pending_posts/1

@@ -5,12 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:tag]  
-      @posts = Post.tagged_with(params[:tag])
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(4)
     elsif params[:query]
-      @posts = Post.where('title LIKE ?', "%#{params[:query]}")
+      @posts = Post.where('title LIKE ?', "%#{params[:query]}").page(params[:page]).per(4)
     else
-      @posts = Post.all
+      @posts = Post.page(params[:page]).per(4)
     end
   end
 

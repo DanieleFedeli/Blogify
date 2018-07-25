@@ -7,10 +7,10 @@
             %div{:class => "alert alert-#{key}"}
               = value
         %h2 Sign in utente
-        %p Inserisci la tua email e password
+        %p Log in wiht your email or username
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'Login'}) do |f| 
         .form-group
-          =f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
+          =f.email_field :email, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
         .form-group
           =f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: "Password"
         - if devise_mapping.rememberable?
