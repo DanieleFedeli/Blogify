@@ -17,7 +17,8 @@ gem 'haml-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
-
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 group :development, :test do
   gem 'sqlite3'

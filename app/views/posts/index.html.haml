@@ -1,5 +1,6 @@
 
 .row
+  
   .col-lg-12.col-md-12.col-xs-12#post_divs
     -@posts.each do |pp|
       .container.border-top.border-bottom.post_container.main-div.mx-auto.my-5
@@ -21,3 +22,4 @@
             %h6.my-auto.py-2.created_at.text-right
               Inviato il 
               =pp.created_at.strftime("%d %m %Y")
+    =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
