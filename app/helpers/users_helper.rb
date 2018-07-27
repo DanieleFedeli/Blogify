@@ -3,7 +3,7 @@ module UsersHelper
     if !current_user.avatar.url.present?
       user.avatar.url
     else
-      image_url('Placeholder.png')
+      asset_url('Placeholder.png')
     end
   end
 
