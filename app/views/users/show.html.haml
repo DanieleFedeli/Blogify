@@ -2,7 +2,7 @@
 .main-div
   .row
     .col-lg-3.col-md-3.col-xs-3.col-3
-      =image_tag (image_for @user), class: 'img-thumbnail'
+      =image_tag @user.avatar.thumb.url, class: 'img-thumbnail'
     .col-lg-9.col-md-9.col-xs-9.col-9
       %h3
         =@user.username
