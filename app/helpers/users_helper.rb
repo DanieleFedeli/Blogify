@@ -3,7 +3,7 @@ module UsersHelper
     if !current_user.avatar.url.present?
       user.avatar.url
     else
-      'http://via.placeholder.com/150x150'
+      image_url('Placeholder.png')
     end
   end
 

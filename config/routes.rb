@@ -13,15 +13,9 @@ Rails.application.routes.draw do
   resources :pending_posts do
     get 'accept' => 'pending_posts#accept'
   end
-  
-  resources :users do
-    resources :pending_posts
-    resources :posts do
-      resources :comments
-    end
-  end
-  
+
   get 'tags/:tag', to: 'posts#index', as: :tag
+  resources :users
   resources :posts do
     resources :comments
   end
