@@ -2,6 +2,7 @@ class PendingPostsController < ApplicationController
   before_action :set_pending_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
   before_action :power_user, only: [:index, :accept, :destroy]
+  
   # GET /pending_posts
   # GET /pending_posts.json
   def index
