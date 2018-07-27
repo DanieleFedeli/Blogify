@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @posts = @user.posts.page(params[:page]).per(8)
   end
 
   # GET /users/new

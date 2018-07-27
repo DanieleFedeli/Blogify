@@ -1,8 +1,27 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#posts-nav{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f9fa+0,f4f4f4+48,eaeaea+49,f8f9fa+100 */
+  background: rgb(248,249,250); /* Old browsers */
+  background: -moz-linear-gradient(top, rgb(248,249,250) 0%, rgb(244,244,244) 48%, rgb(234,234,234) 49%, rgb(248,249,250) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgb(248,249,250) 0%,rgb(244,244,244) 48%,rgb(234,234,234) 49%,rgb(248,249,250) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgb(248,249,250) 0%,rgb(244,244,244) 48%,rgb(234,234,234) 49%,rgb(248,249,250) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f9fa', endColorstr='#f8f9fa',GradientType=0 ); /* IE6-9 */
+}
 
+.card-header .btn-link{
+  color: unset;
+  text-decoration: none;
+}
 
+[data-toggle="collapse"] .fa:before {  
+  content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f13a";
+}
 
 #centerdiv{
   margin-top: 20px;

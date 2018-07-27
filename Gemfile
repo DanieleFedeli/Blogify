@@ -19,10 +19,20 @@ gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.7'
+  gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -30,12 +40,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
 end
 
 group :production do

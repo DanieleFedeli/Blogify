@@ -4,13 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-          #authentication_keys: [:login]
          
   has_many :posts
   has_many :pending_posts
   has_many :refused_posts
   has_many :comments
 
+  mount_uploader :avatar, AvatarUploader
+  
   attr_writer :login
 
   def login
