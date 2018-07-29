@@ -259,9 +259,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   if Rails.env.production?
-    config.omniauth :facebook, "408791222974805", "7b283596f50b21ec75bf655ceafb1354", callback_url: "https://blogify123.herokuapp.com/users/auth/facebook/callback" 
+    config.omniauth :facebook, "408791222974805", "7b283596f50b21ec75bf655ceafb1354", callback_url: "https://blogify123.herokuapp.com/users/auth/facebook/callback",scope: 'public_profile, email, manage_pages, user_friends', info_fields: 'id, first_name, last_name, link, email', image_size: 'normal'
   else 
-    config.omniauth :facebook, "233562560799469", "2e1c6b5d2a445dcb7782da1da4eafc82", callback_url: "http://localhost:3000/users/auth/facebook/callback" 
+    config.omniauth :facebook, "233562560799469", "2e1c6b5d2a445dcb7782da1da4eafc82", callback_url: "https://localhost:3000/users/auth/facebook/callback", scope: 'public_profile, email, manage_pages, user_friends', info_fields: 'id, first_name, last_name, link, email', image_size: 'large'
   end
 
   # ==> Warden configuration
