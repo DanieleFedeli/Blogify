@@ -2,10 +2,6 @@
   .row
     .col-lg-12.col-md-12.col-sm-12.login-form
       .panel
-        .container.text-center
-          - flash.each do |key, value|
-            %div{:class => "alert alert-#{key}"}
-              = value
         %h2 Sign in utente
         %p Log in wiht your email or username
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'Login'}) do |f| 

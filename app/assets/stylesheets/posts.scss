@@ -15,3 +15,50 @@
 
   color: #444444;
 }
+#new_comment{
+  width: 100%;
+}
+
+.new_comment{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#new_comment > .form-control{
+  margin-left: 0px;
+}
+
+#comment_body{
+  width: 100%;
+}
+
+.comments_content{
+  background-color: #e9ebee;
+  border-radius: 18px;
+  position: relative;
+}
+
+.comment_author a{
+  font-weight: bold;
+}
+
+
+.date_time_comment{
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  font-weight: 100;
+  color: gray;
+  font-size: 0.8rem;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.delete_comment a{
+  color: rgb(206, 38, 38);
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  font-size: 0.8rem;
+}

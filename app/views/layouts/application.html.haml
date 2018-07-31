@@ -10,9 +10,16 @@
   %body
     = render 'layouts/navbar'
     = render 'layouts/sidemenu'
-    .overlay   
+    -if flash.any?
+      %br
+      .main-div.text-center
+        - flash.each do |key, value|
+          %div{:class => "alert alert-#{key}"}
+            = value
+    .overlay
     #main
       = yield
+
 :javascript
   window.fbAsyncInit = function() {
     FB.init({
