@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :pending_posts
   has_many :refused_posts
   has_many :comments
+  has_many :likes
 
   mount_uploader :avatar, AvatarUploader
   

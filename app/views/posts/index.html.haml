@@ -3,65 +3,7 @@
   
   .col-lg-12.col-md-12.col-xs-12#post_divs
     -@posts.each do |pp|
-      .container.post_container.main-div.mx-auto.my-5
-        .row.title_container.my-2
-          %h3.mx-auto
-            =link_to pp.title, post_path(pp.id)
-        .row.tag_continer.border-bottom.pb-2
-          .col-6.text-left
-            Autore:
-            =link_to pp.user.username, pp.user
-          .col-6.text-right
-            Inviato il 
-            =pp.created_at.strftime("%d %m %Y")
-        .row.tag_container.text-center
-          Tags: 
-          =raw pp.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
-        .row.body_container
-          .col-lg-12
-            =raw pp.body
-        .row.border-top.pt-3.likes_comments_div
-          .col-6.text-right
-            Number of likes
-            %i.far.fa-thumbs-up
-          .col-6.text-left
-            =link_to pp do
-              %i.fas.fa-comment
-              =pp.comments.count
-              -if pp.comments.count > 1
-                Comments
-              -else
-                Comment
-
-        -pp.comments.first(3).each do |c|
-          .row.my-2
-            .col-lg-1.col-md-2.col-2
-              =image_tag current_user.avatar.small_thumb.url, class: 'avatar_comment float-right rounded-circle'
-            .col-lg-10.col-md-9.col-9.my-auto.comments_content.form-control
-              %span.comment_author
-                =link_to "#{c.user.username}:", c.user
-              =raw c.body
-              -if pp.user == current_user || current_user == c.user || current_user.admin?
-                %span.delete_comment
-                  =link_to [pp, c], method: :delete, title: 'Delete comment' do
-                    %i.fas.fa-times
-              %span.date_time_comment
-                =c.created_at.strftime("%d/%m/%Y %k:%M")
-        -if pp.comments.count > 3
-          .row.text-center
-            =link_to 'Show more comments...', pp, class: 'mx-auto'
-        =form_for([pp, Comment.new], html:{ class: 'form-comment mt-2'}, remote: true) do |f|
-          .row
-            -if current_user
-              .col-lg-1.col-md-2.col-2
-                =image_tag current_user.avatar.small_thumb.url, class: 'avatar_comment float-right rounded-circle'
-              .col-lg-10.col-md-9.col-9.new_comment
-                =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
-            -else
-              .col-11
-                =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
-            .col-1
-              =f.submit "Invia", class: 'btn btn-outline-success'
+      =render pp
     =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
 
 :javascript

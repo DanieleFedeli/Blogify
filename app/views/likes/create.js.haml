@@ -1,0 +1,2 @@
+correct_div = "#post-#{@post.id}-likes"
+$(correct_div).html("#{escape_javascript(render 'likes/index', locals: {post: @post})}")
