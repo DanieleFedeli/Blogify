@@ -12,9 +12,9 @@
     = render 'layouts/sidemenu'
     -if flash.any?
       %br
-      .main-div.text-center
+      .container
         - flash.each do |key, value|
-          %div{:class => "alert alert-#{key}"}
+          %div{:class => "flash_div alert text-center"}
             = value
     .overlay
     #main
