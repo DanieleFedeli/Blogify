@@ -41,6 +41,10 @@
               %span.comment_author
                 =link_to "#{c.user.username}:", c.user
               =raw c.body
+              -if pp.user == current_user || current_user == c.user || current_user.admin?
+                %span.delete_comment
+                  =link_to [pp, c], method: :delete, title: 'Delete comment' do
+                    %i.fas.fa-times
               %span.date_time_comment
                 =c.created_at.strftime("%d/%m/%Y %k:%M")
         -if pp.comments.count > 3

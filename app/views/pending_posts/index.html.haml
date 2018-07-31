@@ -1,7 +1,7 @@
 
 .row
   .col-lg-12.col-md-12.col-xs-12#post_divs
-    -@pending_post.each do |pp|
+    -@pending_posts.each do |pp|
       .container.post_container.main-div.mx-auto.my-5
         .row.title_container.my-2
           %h3.mx-auto
@@ -19,4 +19,4 @@
         .row.body_container
           .col-lg-12
             =raw pp.body
-    =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
+    =paginate @pending_posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
