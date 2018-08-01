@@ -9,6 +9,11 @@
 
 
 @media only screen and (max-width: 767px) {
+  .main-div{
+    padding: 25px 35px 35px 35px !important; 
+    box-shadow: none !important;
+  }
+  .flash_div{box-shadow: none !important;}
   .moveSide{margin-left: 300px !important}
   .moveSide-menu{width: 300px !important;}
   .sidenav {
@@ -47,7 +52,12 @@
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   /* portrait phones */
-  .main-div{padding: 25px 35px 35px 35px !important}
+  .main-div{
+    padding: 25px 35px 35px 35px !important; 
+    box-shadow: none !important;
+    border-bottom: 2px solid #dee2e6;
+  }
+  .flash_div{box-shadow: none !important}
   .moveSide{margin-left: 200px !important}
   .moveSide-menu{width: 200px !important;}
   body{background: unset;}
@@ -210,5 +220,6 @@ body{
 .post_container{
   margin-left: 15%;
   margin-right: 15%;
+  position: relative;
 }
 

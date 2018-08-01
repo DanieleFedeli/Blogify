@@ -48,9 +48,12 @@ a:hover{text-decoration: none;}
   font-size: 0.8rem;
 }
 
-
-
-
+.delete_post, .delete_post a{
+  position: absolute;
+  right: 8px;
+  color: red;
+  top: 5px;
+}
 @media only screen and (max-width: 767px) {
   /* phones */
 }

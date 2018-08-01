@@ -1,4 +1,8 @@
 .post_container.main-div
+  %span.delete_post
+    -if current_user && current_user.admin?
+      =link_to post, method: :delete, title: 'Delete post' do
+        %i.fas.fa-times
   .row.title_container.my-2
     %h3.mx-auto
       =link_to post.title, post_path(post.id)
