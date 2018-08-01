@@ -1,4 +1,4 @@
-.container.post_container.main-div.mx-auto.my-5
+.post_container.main-div.my-5
   .row.title_container.my-2
     %h3.mx-auto
       =link_to post.title, post_path(post.id)
@@ -13,27 +13,33 @@
     Tags: 
     =raw post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
   .row.body_container
-    .col-lg-12
+    .col-lg-12.text_post
       =raw post.body
   .row.border-top.pt-3.likes_comments_div
     .col-6.text-right{:id => "post-#{post.id}-likes"}
-      -if post.likes.any?
-        =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')
-        -if post.likes.count > 2
-          %a{"data-toggle": "modal", href: "#likes-#{post.id}"}
-            and other #{post.likes.count - 2}
-        %em
-          liked this
-      
       -if current_user && current_user.likes.exists?(post_id: post.id)
         =link_to [post, post.likes.find_by(user: current_user)], method: :delete, remote: true do
+          Like
           %i.fas.fa-thumbs-up
       -elsif !current_user
         =link_to new_user_session_path do
+          Like 
           %i.far.fa-thumbs-up
       -else
         =link_to [post, Like.new], method: :post, remote: true do
+          Like
           %i.far.fa-thumbs-up
+      
+      %div      
+        -if post.likes.any?
+          =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')
+          -if post.likes.count > 2
+            %a{"data-toggle": "modal", href: "#likes-#{post.id}"}
+              and other #{post.likes.count - 2}
+          %em
+            liked this
+      
+      
         
     .col-6.text-left
       =link_to post do
@@ -66,12 +72,12 @@
       -if current_user
         .col-lg-1.col-md-2.col-2
           =image_tag current_user.avatar.small_thumb.url, class: 'avatar_comment float-right rounded-circle'
-        .col-lg-10.col-md-9.col-9.new_comment
+        .col-lg-9.col-md-8.col-8.new_comment
           =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
       -else
-        .col-11
+        .col-10
           =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
-      .col-1
+      .col-2
         =f.submit "Invia", class: 'btn btn-outline-success'
 
 %div.modal.fade{:id => "#likes-#{post.id}", tabindex: "-1", role: "dialog", "aria-labelledby": "modal-title-#{post.id}", "aria-hidden": "true"}

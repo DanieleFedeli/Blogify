@@ -2,26 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media only screen and (max-width: 767px) {
+  /* phones */
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  /* portrait phones */
+}
+
+
+.created_at{opacity: 0.8;}
+
+.footer_post a{color: #777777; margin-top: auto;}
+
+.footer_post{color: #444444;}
+
+#pending_post_body{resize: none; height: auto;}
+
 .body_container{
   margin: 5px;
-}
-
-.created_at{
-  opacity: 0.8;
-}
-
-.footer_post a{
-  color: #777777;
-  margin-top: auto;
-}
-
-.footer_post{
-  color: #444444;
-}
-
-#pending_post_body{
-  resize: none;
-  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
 }
 
 .form-group  .btn.btn-primary {
