@@ -103,16 +103,6 @@
 .moveSide{margin-left: 300px !important}
 .moveSide-menu{width: 300px !important;}
 
-.overlay{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: black;
-  transition: all 0.5s;
-  z-index: 1;
-  opacity: 0;
-}
-
 #top-nav{transition: all 0.5s;}
   
 #brand{transition: 0.5s;}
@@ -215,7 +205,6 @@ body{
   background-color: #ffffff;
   border-radius: 18px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 40px 10% -50px 10%;
 }
 
 .post_container{

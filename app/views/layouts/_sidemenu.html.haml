@@ -13,23 +13,12 @@
   function openNav() {
     $("#mySidenav").addClass("moveSide-menu");
     $("#main").addClass("moveSide");
-    $("#top-nav").addClass("moveSide navbar-dark bg-dark");
-    $('#top-nav').removeClass('navbar-light bg-light');
-    $('.overlay').show();
-    $('.overlay').css('opacity', 0.7);
-    $('#brand').css('color', "white");
+    $("#top-nav").addClass("moveSide");
   }
 
   /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
   function closeNav() {
     $("#mySidenav").removeClass("moveSide-menu");
     $("#main").removeClass("moveSide");
-    $('#top-nav').addClass('navbar-light bg-light');
-    $("#top-nav").removeClass("moveSide navbar-dark bg-dark");
-    $('.overlay').hide();
-    $('#brand').css('color', "black");
+    $("#top-nav").removeClass("moveSide");
   }
-
-  $(document).ready(function(){
-    $('.overlay').hide(); 
-  })

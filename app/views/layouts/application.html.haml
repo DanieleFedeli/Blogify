@@ -11,14 +11,14 @@
   %body
     = render 'layouts/navbar'
     = render 'layouts/sidemenu'
-    -if flash.any?
-      %br
-      .container
-        - flash.each do |key, value|
-          %div{:class => "flash_div alert text-center"}
-            = value
-    .overlay
+    
     #main
+      -if flash.any?
+        %br
+        .container
+          - flash.each do |key, value|
+            %div{:class => "flash_div alert text-center"}
+              = value
       = yield
 
 :javascript
