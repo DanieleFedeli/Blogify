@@ -1,4 +1,4 @@
-.post_container.main-div.my-5
+.post_container.main-div
   .row.title_container.my-2
     %h3.mx-auto
       =link_to post.title, post_path(post.id)
@@ -80,16 +80,4 @@
       .col-2
         =f.submit "Invia", class: 'btn btn-outline-success'
 
-%div.modal.fade{:id => "#likes-#{post.id}", tabindex: "-1", role: "dialog", "aria-labelledby": "modal-title-#{post.id}", "aria-hidden": "true"}
-  .modal-dialog.modal-dialog-centered{:role => "document"}
-  .modal-content
-    .modal-header
-      %h5.modal-title{:id => "modal-title-#{post.id}"}
-        Modal title
-      %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-        %span{"aria-hidden" => "true"} ×
-    .modal-body
-      AOAOAO
-    .modal-footer
-      %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-      %button.btn.btn-primary{:type => "button"} Save changes
+

@@ -1,8 +1,8 @@
 
-.row
-  -@posts.each do |pp|
-    =render pp
-  =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
+
+-@posts.each do |pp|
+  =render pp
+=paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
 
 :javascript
   $('document').ready(function(){
