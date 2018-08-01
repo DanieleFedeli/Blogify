@@ -1,7 +1,6 @@
 
 .row
-  
-  .col-lg-12.col-md-12.col-xs-12#post_divs
+  .col-lg-12.col-md-12.col-xs-12
     -@posts.each do |pp|
       =render pp
     =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
