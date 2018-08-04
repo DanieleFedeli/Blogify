@@ -44,17 +44,18 @@ class PendingPostsController < ApplicationController
 
   def accept
     @pending_post = PendingPost.find(params[:pending_post_id])
-    puts "ALL TAG BEFORE #{@pending_post.all_tags_list}"
-    @pending_post.id = Post.count + 1
-    @post = @pending_post.user.posts.build @pending_post.attributes
     
-    logger.debug "ALL TAG: #{@pending_post.all_tags_list}"
+    #puts "ALL TAG BEFORE #{@pending_post.all_tags_list}"
+    @post = @pending_post.user.posts.build @pending_post.attributes
+    @post.id = nil
+
+    #logger.debug "ALL TAG: #{@pending_post.all_tags_list}"
     @pending_post.tag_list.map{ |p| @post.tag_list.add(p) }
     
-    @pending_post.destroy!
     @post.save!
-    
-    logger.debug "ALL TAG POST: #{@post.all_tags_list}"
+    @pending_post.destroy!
+       
+    #logger.debug "ALL TAG POST: #{@post.all_tags_list}"
     
     respond_to do |format|
       format.html {redirect_to pending_posts_path}

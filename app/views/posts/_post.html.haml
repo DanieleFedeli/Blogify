@@ -18,7 +18,7 @@
     =raw post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
   .row.body_container
     .col-lg-12.text_post
-      =raw post.body
+      =raw post.body.html_safe
   .row.border-top.pt-3.likes_comments_div
     .col-6.text-right{:id => "post-#{post.id}-likes"}
       -if current_user && current_user.likes.exists?(post_id: post.id)

@@ -22,6 +22,7 @@ gem 'bootstrap4-kaminari-views'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
+gem "wysiwyg-rails"
 gem 'thin'
 
 group :development, :test do
