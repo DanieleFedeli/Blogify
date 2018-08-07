@@ -32,7 +32,12 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
-      user.remote_avatar_url = auth[:info][:image]
+      Cloudinary::Uploader.upload(auth[:info][:image], 
+        pulic_id: user.username,
+        :eager => [
+          {:width => 300, :height => 300, :crop => :limit}, 
+          {:width => 100, :height => 100, :crop => :limit}
+        ])
     end
   end
   

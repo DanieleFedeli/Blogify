@@ -47,6 +47,14 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        unless(user_params[:avatar])
+          Cloudinary::Uploader.upload(user_params[:avatar], 
+            pulic_id: user_params[:username],
+            :eager => [
+              {:width => 300, :height => 300, :crop => :limit}, 
+              {:width => 100, :height => 100, :crop => :limit}
+            ])
+        end
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

@@ -1,6 +1,6 @@
 
 .profile
-  =image_tag @user.avatar.thumb.url, class: 'img-thumbnail'
+  =cl_image_tag @user.avatar.standard.url, class: 'img-thumbnail'
   .user-info
     %h3
       =@user.username

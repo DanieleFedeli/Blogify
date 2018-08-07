@@ -10,11 +10,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
     ActionController::Base.helpers.asset_path("Placeholder.png")
   end
 
+  
   version :standard do
-    process :resize_to_fill => [300, 300]
+    eager
+    process :resize_to_limit => [300, 300]
   end
 
   version :thumbnail do
-   resize_to_fit(50, 50)
+    eager
+    process resize_to_fill: [100, 100]
   end
 end
