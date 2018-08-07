@@ -1,0 +1,12 @@
+-if current_user && current_user.likes.exists?(post_id: post.id)
+  =link_to [post, post.likes.find_by(user: current_user)], method: :delete, class: 'like-button-container', remote: true do
+    =pluralize(post.likes.count, 'Like')
+    %i.fas.fa-thumbs-up
+-elsif !current_user
+  =link_to new_user_session_path, class: 'like-button-container' do
+    =pluralize(post.likes.count, 'Like')
+    %i.far.fa-thumbs-up
+-else
+  =link_to [post, Like.new], method: :post, class: 'like-button-container', remote: true do
+    =pluralize(post.likes.count, 'Like')
+    %i.far.fa-thumbs-up 

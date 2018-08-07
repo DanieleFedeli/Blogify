@@ -1,0 +1,28 @@
+.user-post{id: "post-#{post.id}"}
+  %h4
+    =link_to post.title, post
+  .tag_container.text_center
+    Tags:
+    =raw post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
+  .body_container
+    =raw post.body.truncate(256, separator: /\s/)
+  .likes_comments
+    -if current_user && current_user.likes.exists?(post_id: post.id)
+      =link_to [post, post.likes.find_by(user: current_user)], method: :delete, remote: true, class: 'like-button-container' do
+        %span.likes-num
+          =pluralize(post.likes.count, 'Like')
+        %i.fas.fa-thumbs-up
+    -elsif !current_user
+      =link_to new_user_session_path , class: 'like-button-container' do
+        %span.likes-num
+          =pluralize(post.likes.count, 'Like')
+        %i.far.fa-thumbs-up
+    -else
+      =link_to [post, Like.new], method: :post, remote: true, class: 'like-button-container' do
+        %span.likes-num
+          =pluralize(post.likes.count, 'Like')
+        %i.far.fa-thumbs-up
+    =link_to post, class: 'comments-link' do
+      %span.comments-num
+        =pluralize(post.comments.count, 'Comment')
+      %i.fas.fa-comment

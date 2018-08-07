@@ -1,45 +1,46 @@
-%br
-.main-div
-  .row
-    .col-lg-3.col-md-3.col-xs-3.col-3
-      =image_tag @user.avatar.thumb.url, class: 'img-thumbnail'
-    .col-lg-9.col-md-9.col-xs-9.col-9
-      %h3
-        =@user.username
-      %span
-        Email:
+
+.profile
+  =image_tag @user.avatar.thumb.url, class: 'img-thumbnail'
+  .user-info
+    %h3
+      =@user.username
+    %span
+      Email:
+    %em
+      %a{href: "mailito:#{@user.email}?subjet='Email da blogify'"}
+        =@user.email
+    %h6
+      Joined:
+      =time_ago_in_words(@user.created_at.to_datetime)
+      ago.
       %em
-        %a{href: "mailito:#{@user.email}?subjet='Email da blogify'"}
-          =@user.email
-      %h6
-        Joined:
-        =time_ago_in_words(@user.created_at.to_datetime)
-        ago.
-        %em
-          (
-          =@user.created_at.strftime("%d/%m/%Y")
-          )
-  %i.fa{"aria-hidden":"true"}
-  #posts-nav.mt-2.card-header
-    %h5.mb-0
-      %button.btn.btn-link{"data-toggle": "collapse", "data-target":"#user-posts", "aria-expanded": "false", "aria-controls": "user-posts"}
-        %i.fa{"aria-hidden":"true"}
-        Posts di 
-        =@user.username
-    
-  #user-posts.collapse.row
+        (
+        =@user.created_at.strftime("%d/%m/%Y")
+        )
+  .user-posts
     -@posts.each do |post|
-      .panel.panel-default.col-lg-3.col-md-6.col-xs-12.col-12.my-4
-        .panel-heading.title-post.text-center
-          %h4
-            =post.title   
-        .panel-body
-          .tag_container.text_center
-            Tags:
-            =raw post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
-          .row.body_container
-            .col-lg-12
-              =raw post.body.truncate(256, separator: /\s/)
-        .panel-footer.link_post_user
-          =link_to 'Show more', post
-    =paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
+      =render 'user_post', post: post
+.infinite-scrolling
+  =paginate @posts
+
+:javascript
+  $('document').ready(function(){
+    if ($('.infinite-scrolling').size() > 0) {
+      $('.content').scroll(function() {
+        if($('.infinite-scrolling').size() < 1) $('.content').unbind('scroll');
+        var more_posts_url = $('.pagination .next a').attr('href');
+        if ($(this).scrollTop() + $(this).innerHeight() >=  $(this)[0].scrollHeight && more_posts_url) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(more_posts_url);
+        }
+      });
+      $(window).scroll(function() {
+        if($('.infinite-scrolling').size() < 1) $(window).unbind('scroll');
+        var more_posts_url = $('.pagination .next a').attr('href');
+        if ($(this).scrollTop() + $(this).innerHeight() >=  $(this)[0].scrollHeight && more_posts_url) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(more_posts_url);
+        }
+      });
+    }
+  })

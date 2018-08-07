@@ -1,3 +1,8 @@
+/*** REGISTRAZIONE E EDIT USER ***/
+.pagination{
+  justify-content: center;
+}
+
 .registration{
   background: white;
   border: 1px solid #cccccc;
@@ -28,17 +33,147 @@
   position: relative;
 }
 
+/********************************/
+
+/*** USER SHOW ***/
+.profile{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "avatar user user"
+    "posts posts posts";
+  grid-row-gap: 2rem;
+  border-radius: 2px;
+  background: white;
+  margin: 30px 0px 0px 10%;
+  padding: 50px 30px 70px 30px;
+}
+
+.profile .img-thumbnail{
+  grid-area: avatar;  
+  justify-self: center;
+
+}
+
+.user-info{
+  grid-area: user;
+  justify-self: start;
+  align-self: center;
+}
+
+.user-posts{
+  grid-area: posts;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ".   .   .   ."
+    ".   .   .   ."
+    ".   .   .   .";
+}
+
+.user-post > .body_container{
+  min-height: 0;
+}
+.user-posts .fa-thumbs-up{
+  margin-right: 2rem;
+}
+
+
+@media screen and (max-width: 1400px){
+  .user-posts{
+    grid-area: posts;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ".   .   ."
+      ".   .   ."
+      ".   .   .";
+  }
+}
+@media screen and (max-width: 1110px){
+  .user-posts{
+    grid-area: posts;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ".   ."
+      ".   ."
+      ".   .";
+  }
+}
+
 @media screen and (max-width: 1024px) {
+  /*** REGISTRAZIONE E EDIT USER ***/
   .registration{
     background: white;
     border: 1px solid #cccccc;
     border-radius: 5px;
+    
     margin: 1rem 1rem 1rem 6rem;
     padding: 25px;
+  }
+  /************************************/
+  
+  .profile{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "avatar user"
+      "posts posts";
+    grid-row-gap: 2rem;
+    border-radius: 2px;
+    background: white;
+    margin: 0px !important;
+    padding: 50px 30px 70px 30px;
+  }
+
+  .user-posts{
+    grid-area: posts;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ".   .   ."
+      ".   .   ."
+      ".   .   .";
+  }
+
+  .user-posts .likes_comments{
+    grid-template-columns: max-content max-content;
+  }
+}
+@media screen and (max-width: 700px){
+  .user-posts{
+    grid-area: posts;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ".  ."
+      ".  ."
+      ".  .";
   }
 }
 
 @media screen and (max-width: 600px) {
+  /*** REGISTRAZIONE E EDIT USER ***/
   .registration{
     background: white;
     border: 0px;
@@ -49,5 +184,41 @@
 
   .registration h2{
     text-align: center;
+  }
+  /************************************/
+
+  .profile{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "avatar user"
+      "posts posts";
+    grid-row-gap: 1rem;
+    border-radius: 2px;
+    background: white;
+    margin: 0px !important;
+    padding: 50px 30px 70px 30px;
+  }
+
+  .user-post{
+    padding-top: 1rem;
+    border-top: 1px solid #cccccc;
+  }
+}
+
+@media screen and (max-width: 540px){
+  .user-posts{
+    grid-area: posts;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "."
+      "."
+      ".";
   }
 }

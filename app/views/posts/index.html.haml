@@ -9,15 +9,17 @@
   $('document').ready(function(){
     if ($('.infinite-scrolling').size() > 0) {
       $('.content').scroll(function() {
-        var more_posts_url = $('.pagination .next a').attr('href'); 
-        if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+        if($('.infinite-scrolling').size() < 1) $('.content').unbind('scroll');
+        var more_posts_url = $('.pagination .next a').attr('href');
+        if ($(this).scrollTop() + $(this).innerHeight() >=  $(this)[0].scrollHeight && more_posts_url) {
           $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
           $.getScript(more_posts_url);
         }
       });
       $(window).scroll(function() {
+        if($('.infinite-scrolling').size() < 1) $(window).unbind('scroll');
         var more_posts_url = $('.pagination .next a').attr('href');
-        if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+        if ($(this).scrollTop() + $(this).innerHeight() >=  $(this)[0].scrollHeight && more_posts_url) {
           $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
           $.getScript(more_posts_url);
         }

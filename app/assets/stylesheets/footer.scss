@@ -71,27 +71,25 @@ ul.logos-list{
 
 @media screen and (max-width: 1024px) {
   footer{
+    max-height: 100px;
     display: grid;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
+    margin: 0;
+    padding:0;
+    grid-template-columns: auto 1fr minmax(auto, max-content);
+    grid-template-rows: 100px;
     grid-template-areas: 
-      "logo links"
-      "copyright copyright";
+      "logo links copyright";
     background: white;
     border-left: 1px solid #cccccc;
     grid-area: footer;
     grid-row-gap: 1rem;
   }
-
+  
   footer .logo{
     margin-left: auto;
     margin-right: auto;
     grid-area: logo;
-    align-self: end;
+    align-self: center;
     justify-self: center;
   }
   
@@ -100,7 +98,9 @@ ul.logos-list{
   }
 
   .logos{
-    justify-self: end;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
   }
   
   ul.logos-list{
@@ -111,13 +111,13 @@ ul.logos-list{
   }
 
   .logos > h4{
-    text-align: center;
+    display: none;
   }
 
   .logos-list > li{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    font-size: 1rem;
+    font-size: 0rem;
   }
   
   .logos-list > li > .fa{
@@ -130,10 +130,15 @@ ul.logos-list{
     font-size: unset;
   }
 
+  .copyright{
+   align-self: center;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
   footer{
+    max-height: unset;
     border-left: 0px !important;
     width: 100%;
     display: grid;

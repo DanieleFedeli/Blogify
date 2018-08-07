@@ -1,2 +1,2 @@
-correct_div = "#post-#{@post.id}-likes"
-$(correct_div).html("#{escape_javascript(render 'likes/index', locals: {post: @post})}")
+$("#post-#{@post.id}").find('.likes').html('#{j render "index", post: @post}');
+$("#post-#{@post.id}").find('.like-button-container').html('#{j render "button", post: @post}');

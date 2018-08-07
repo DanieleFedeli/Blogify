@@ -1,0 +1,11 @@
+-@posts.each do |p|
+  $('.user-posts').append('#{j render "user_post", post: p}');
+
+
+-if @posts.next_page
+  $('.pagination').replaceWith('#{j paginate @posts}');
+
+-else 
+  $(window).off('scroll');
+  $('.infinite-scrolling').remove();
+  

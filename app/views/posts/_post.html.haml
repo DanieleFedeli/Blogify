@@ -1,4 +1,4 @@
-.post_container
+.post_container{id: "post-#{post.id}"}
   -if current_user && current_user.admin
     =link_to post, method: :delete, title: 'Delete post' do
       %i.fas.fa-times.delete
@@ -18,18 +18,18 @@
         )
     .likes_comments
       -if current_user && current_user.likes.exists?(post_id: post.id)
-        =link_to [post, post.likes.find_by(user: current_user)], method: :delete, remote: true do
+        =link_to [post, post.likes.find_by(user: current_user)], method: :delete, class: 'like-button-container', remote: true do
           Like
           %i.fas.fa-thumbs-up
       -elsif !current_user
-        =link_to new_user_session_path do
+        =link_to new_user_session_path, class: 'like-button-container' do
           Like 
           %i.far.fa-thumbs-up
       -else
-        =link_to [post, Like.new], method: :post, remote: true do
+        =link_to [post, Like.new], method: :post, class: 'like-button-container', remote: true do
           Like
           %i.far.fa-thumbs-up 
-      %small.ml-2
+      %small.ml-2.likes
         -if post.likes.any?
           %br
           =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')

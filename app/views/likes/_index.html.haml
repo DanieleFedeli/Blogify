@@ -1,0 +1,7 @@
+-if post.likes.any?
+  %br
+  =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')
+  -if post.likes.count > 2
+    and other #{post.likes.count - 2}
+  %em
+    liked this  

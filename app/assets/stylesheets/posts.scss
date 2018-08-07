@@ -4,6 +4,10 @@
   margin-right: auto;
 }
 
+.title h3{
+  text-align: center;
+}
+
 .posts > span{
   display: table;
   margin: 2rem auto;
@@ -135,7 +139,6 @@
     border: 0px;
     border-radius: 0;
     border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
     display: grid;
     padding: 1rem;
     margin: 0;
