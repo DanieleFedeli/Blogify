@@ -52,7 +52,7 @@
       .comment_div.border-bottom.border-top
         .comment
           =link_to c.user, title: c.user.username do
-            =image_tag c.user.avatar.small_thumb.url, class: 'avatar_comment my-auto rounded-circle'
+            =image_tag c.user.avatar.thumbnail.url, class: 'avatar_comment my-auto rounded-circle'
           .body_comment
             =simple_format c.body
         %small.date_time_comment
