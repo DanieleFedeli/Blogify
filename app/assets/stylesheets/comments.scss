@@ -1,3 +1,43 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment_div{
+  position: relative;
+}
+
+.comment{
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-areas:
+    "avatar body"
+}
+
+.avatar_comment{
+  height: 50px;
+  width: auto;
+  grid-area: avatar;
+}
+
+.body_comment{
+  width: 100%;
+  grid-area: body;
+  margin-top: 1rem;
+  padding-left: 0.5rem;
+}
+
+.date_time_comment{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .comment{
+    grid-template-columns: 1fr 5fr;
+  }
+
+  .body_comment{
+    word-break: break-all;
+  }
+}
