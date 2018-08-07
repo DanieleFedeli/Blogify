@@ -9,18 +9,19 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
   %body
     = render 'layouts/navbar'
-    = render 'layouts/sidemenu'
+    /= render 'layouts/sidemenu'
     
-    #main
+    .site-container
       -if flash.any?
-        %br
-        .container
-          - flash.each do |key, value|
-            %div{:class => "flash_div alert text-center"}
-              = value
-      = yield
+        - flash.each do |key, value|
+          %div{:class => "flash_div alert text-center"}
+            = value
+      =render 'layouts/footer'
+      .content
+        = yield
 
 :javascript
   window.fbAsyncInit = function() {

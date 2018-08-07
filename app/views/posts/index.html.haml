@@ -1,16 +1,26 @@
 
-
--@posts.each do |pp|
-  =render pp
-=paginate @posts, :theme => 'twitter-bootstrap-4', pagination_class: "justify-content-center"
+.posts
+  -@posts.each do |pp|
+    =render pp
+.infinite-scrolling
+  =paginate @posts
 
 :javascript
   $('document').ready(function(){
-    if( $('.avatar_comment').length > 0 ){
-      var height = $('#comment_body').innerHeight();
-      var $array = $('.avatar_comment');
-      for(var i = 0; i < $array.length; i++ ){
-        $array.eq(i).height(height);
-      }
+    if ($('.infinite-scrolling').size() > 0) {
+      $('.content').scroll(function() {
+        var more_posts_url = $('.pagination .next a').attr('href'); 
+        if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(more_posts_url);
+        }
+      });
+      $(window).scroll(function() {
+        var more_posts_url = $('.pagination .next a').attr('href');
+        if (more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(more_posts_url);
+        }
+      });
     }
   })

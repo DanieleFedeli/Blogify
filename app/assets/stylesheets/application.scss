@@ -2,226 +2,77 @@
 *= require_self
 *= require_tree
 */
+
 @import "froala_editor.min";
 @import "froala_style.min";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'bootstrap';
 
-
-
-@media only screen and (max-width: 767px) {
-  .main-div{
-    padding: 25px 35px 35px 35px !important; 
-    box-shadow: none !important;
-  }
-  .flash_div{box-shadow: none !important;}
-  .moveSide{margin-left: 300px !important}
-  .moveSide-menu{width: 300px !important;}
-  .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-
+body{
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-@media only screen and (max-width: 767px) and (orientation: portrait) {
-  /* portrait phones */
-  .main-div{
-    padding: 25px 35px 35px 35px !important; 
-    box-shadow: none !important;
-    border-bottom: 2px solid #dee2e6;
-  }
-  .flash_div{box-shadow: none !important}
-  .moveSide{margin-left: 200px !important}
-  .moveSide-menu{width: 200px !important;}
-  body{background: unset;}
-  .post_container{margin: 0px !important;}
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-  .main-div{margin: 0px !important;}
-  #main{padding: 0px;}
-  .text_post{
-    overflow: auto;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-height: 16px;     /* fallback */
-    max-height: 480px;      /* fallback */
-    -webkit-line-clamp: 2; /* number of lines to show */
-  }
+::-webkit-scrollbar {
+  width: 0px;  
+  background: transparent;
+}
 
-  .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+.content {
+  grid-area: content;
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+.site-container{
+  background: #e9ebee;
+  display: grid;
+  grid-template-columns: 5fr minmax(200px, 1fr);
+  grid-template-rows: calc(100vh - 56px);
+  grid-gap: 120px;
+  grid-template-areas:
+    "content footer";
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 1024px) {
+
+  .content {
+    grid-area: content;
+    max-height: calc(100vh - 56px - 230px);
   }
   
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-
-}
-
-
-.moveSide{margin-left: 300px !important}
-.moveSide-menu{width: 300px !important;}
-
-#top-nav{transition: all 0.5s;}
-  
-#brand{transition: 0.5s;}
-
-#main {transition: margin-left .5s; padding: 0px;}
-
-.moveSide{margin-left: 300px;}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {color: #f1f1f1;}
-
-#top-nav{transition: all 0.5s;}
-
-#postcreate{font-weight: 500;}
-
-#tag_cloud a{display: inline-block;}
-
-#tag_cloud_big_div{height: 100%; margin: 0 0 0 0;}
-
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 2; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-body{ 
-  background-image: image_url('retina_wood.png'); 
-  background-repeat:repeat; 
-  background-position:center; 
-  height: 100vh;
-}
-
-.main-div {
-  background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;
-  margin: 30px 10% 30px 10%;
-  padding: 50px 70px 70px 71px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.overlay{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: black;
-  transition: all 0.5s;
-  z-index: 1;
-  opacity: 0;
-}
-
-.badge-tags{
-  line-height: unset;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#tag_cloud {
-  line-height: 1.6em;
-  .s {
-    color: #444444;
-    font-size: 0.8em; 
-  }
-  .m {
-    color: #666666;
-    font-size: 1.2em; 
-  }
-  .l {
-    color: #777777;
-    font-size: 1.8em; 
+  .site-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: calc(100vh - 56px - 230px);
+    grid-gap: 15px;
+    grid-template-areas:
+      "content"
+      "footer";
   }
 }
 
-.flash_div{
-  background-color: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
 
-.post_container{
-  margin-left: 15%;
-  margin-right: 15%;
-  position: relative;
-}
+  .content{
+    max-height: unset;
+  }
 
+  .site-container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-gap: 0px;
+    grid-template-areas:
+      "footer"
+      "content";
+  }
+}

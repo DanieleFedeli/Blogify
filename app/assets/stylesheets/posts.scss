@@ -1,73 +1,152 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.title{
+  grid-area: title;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-a:hover{text-decoration: none;}
+.posts > span{
+  display: table;
+  margin: 2rem auto;
+  
+}
+.body_container{
+  grid-area: body;
+  min-height: 200px;
+  max-height: 500px;
+  overflow: auto;
+}
 
-.title_container a{color: #444444;}
+.info{
+  grid-area: info;
+}
 
-.page-item .page-link{color: #444444;}
+.new_comment{
+  grid-area: new_comment;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-areas: "input button";
+  grid-column-gap: 10px;
+  max-height: 50px;
+}
 
-#new_comment{width: 100%;}
+.input{
+  grid-area: input;
+}
 
-.new_comment{padding-left: 0px;padding-right: 0px;}
+.buttons{
+  grid-area: button;
+}
 
-#new_comment > .form-control{margin-left: 0px;}
+.comments_list{
+  grid-area: comments;
+  overflow-y: auto;
+}
 
-#comment_body{width: 100%}
-
-.comment_author a{font-weight: bold;}
-
-.delete_comment a{
-  color: rgb(206, 38, 38);
+.delete{
   position: absolute;
-  top: 2px;
-  right: 8px;
-  font-size: 0.8rem;
+  top: 20px;
+  right: 25px;
 }
 
-.page-item.active .page-link{
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
-  transform: scale(1.1, 1.1)
-}
-
-.comments_content{
-  background-color: #e9ebee;
-  border-radius: 18px;
+.post_container{
+  background: white;
   position: relative;
-  word-break: break-all;
+  min-height: 450px;
+  justify-content: stretch;
+  border-radius: 2px;
+  margin: 30px 0px 0px 10%;
+  padding: 50px 70px 70px 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: minmax(200px, min-content) 1fr;
+  grid-template-rows: auto minmax(400px, min-content) minmax(50px, min-content);
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "info      title"
+    "comments body"
+    "comments new_comment";
 }
 
-.date_time_comment{
-  position: absolute;
-  right: 8px;
-  bottom: 2px;
-  font-weight: 100;
-  color: gray;
-  font-size: 0.8rem;
+.title h4{
+  text-align: center;
 }
+@media screen and (max-width: 1024px) {
+  .title{
+    grid-area: title;
+    margin-left: auto;
+  }
+  
+  .info{
+    grid-area: info;
+  }
+  
+  .body_container{
+    grid-area: body;
+    max-height: 250px;
+    overflow: auto;
+    text-overflow: ellipsis;
+  }
+  
+  .post_container{
+    display: grid;
+    grid-template-columns: 5fr;
+    grid-template-rows: auto max-content 1fr auto auto;
+    margin: 30px 10% 0px 10%;
+    grid-gap: 15px;
+    grid-template-areas:
+      "title"
+      "body"
+      "info"
+      "comments"
+      "new_comment";
+  }
 
-.delete_post, .delete_post a{
-  position: absolute;
-  right: 8px;
-  color: red;
-  top: 5px;
-}
-@media only screen and (max-width: 767px) {
-  /* phones */
-}
+  .comments_list{
+    max-height: 250px;
+    grid-area: comments;
+    overflow-y: auto;
+  }
 
-@media only screen and (max-width: 767px) and (orientation: portrait) {
-  /* portrait phones */
-  .date_time_comment{
-    font-size: 0.5rem;
-    bottom: -1px;
+  .likes_comments{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "like comments"
+    "likes .....";
+  }
+
+  .likes_comments > a.comments-link{
+    grid-area: comments;
+  }
+
+  .likes_comments > small{
+    grid-area: likes;
+    align-self: start;
+    line-height: 100%;
+    margin: 0 !important;
   }
 }
 
-
-/* tablets and desktop */
-
-
-
+@media screen and (max-width: 600px) {
+  .post_container{
+    border: 0px;
+    border-radius: 0;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    display: grid;
+    padding: 1rem;
+    margin: 0;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    grid-template-areas:
+      "title"
+      "body"
+      "info"
+      "comments"
+      "new_comment";
+  }
+}

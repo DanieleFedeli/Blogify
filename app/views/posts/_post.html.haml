@@ -1,26 +1,22 @@
-.post_container.main-div
-  %span.delete_post
-    -if current_user && current_user.admin?
-      =link_to post, method: :delete, title: 'Delete post' do
-        %i.fas.fa-times
-  .row.title_container.my-2
-    %h3.mx-auto
+.post_container
+  -if current_user && current_user.admin
+    =link_to post, method: :delete, title: 'Delete post' do
+      %i.fas.fa-times.delete
+  .title
+    %h3
       =link_to post.title, post_path(post.id)
-  .row.tag_continer.border-bottom.pb-2
-    .col-6.text-left
-      Autore:
-      =link_to post.user.username, post.user
-    .col-6.text-right
-      Inviato il 
-      =post.created_at.strftime("%d %m %Y")
-  .row.tag_container.text-center
-    Tags: 
     =raw post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
-  .row.body_container
-    .col-lg-12.text_post
-      =raw post.body.html_safe
-  .row.border-top.pt-3.likes_comments_div
-    .col-6.text-right{:id => "post-#{post.id}-likes"}
+  .body_container
+    =post.body.html_safe
+  .info
+    .author.mb-2
+      Autore:
+      =link_to post.user.username, post.user 
+      %small
+        (
+        =post.created_at.strftime("%d %m %Y")
+        )
+    .likes_comments
       -if current_user && current_user.likes.exists?(post_id: post.id)
         =link_to [post, post.likes.find_by(user: current_user)], method: :delete, remote: true do
           Like
@@ -32,56 +28,40 @@
       -else
         =link_to [post, Like.new], method: :post, remote: true do
           Like
-          %i.far.fa-thumbs-up
-      
-      %div      
+          %i.far.fa-thumbs-up 
+      %small.ml-2
         -if post.likes.any?
+          %br
           =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')
           -if post.likes.count > 2
-            %a{"data-toggle": "modal", href: "#likes-#{post.id}"}
-              and other #{post.likes.count - 2}
+            and other #{post.likes.count - 2}
           %em
-            liked this
-      
-      
-        
-    .col-6.text-left
-      =link_to post do
-        %i.fas.fa-comment
+            liked this  
+      %br
+      =link_to post, class: 'comments-link' do
         =post.comments.count
         -if post.comments.count > 1
           Comments
         -else
           Comment
-
-  -post.comments.first(3).each do |c|
-    .row.my-2
-      .col-lg-1.col-md-2.col-2
-        =image_tag c.user.avatar.small_thumb.url, class: 'avatar_comment float-right rounded-circle'
-      .col-lg-10.col-md-9.col-9.my-auto.comments_content.form-control
-        %span.comment_author
-          =link_to "#{c.user.username}:", c.user
-        =raw c.body
-        -if current_user && (post.user == current_user || current_user == c.user || current_user.admin?)
-          %span.delete_comment
+        %i.fas.fa-comment
+  .comments_list
+    -if post.comments.count < 1
+      %em Nessun commento
+    -post.comments.each do |c|
+      .comment_div.border-bottom.border-top
+        .comment
+          =link_to c.user, title: c.user.username do
+            =image_tag c.user.avatar.small_thumb.url, class: 'avatar_comment my-auto rounded-circle'
+          .body_comment
+            =simple_format c.body
+        %small.date_time_comment
+          =c.created_at.strftime("%d/%m/%Y %k:%M")
+          -if current_user && (post.user == current_user || current_user == c.user || current_user.admin?)        
             =link_to [post, c], method: :delete, title: 'Delete comment' do
               %i.fas.fa-times
-        %span.date_time_comment
-          =c.created_at.strftime("%d/%m/%Y %k:%M")
-  -if post.comments.count > 3
-    .row.text-center
-      =link_to 'Show more comments...', post, class: 'mx-auto'
-  =form_for([post, Comment.new], html:{ class: 'form-comment mt-2'}, remote: true) do |f|
-    .row
-      -if current_user
-        .col-lg-1.col-md-2.col-2
-          =image_tag current_user.avatar.small_thumb.url, class: 'avatar_comment float-right rounded-circle'
-        .col-lg-9.col-md-8.col-8.new_comment
-          =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
-      -else
-        .col-10
-          =f.text_field :body, class: 'form-control', placeholder: 'Scrivi un commento...'
-      .col-2
-        =f.submit "Invia", class: 'btn btn-outline-success'
+  =form_for([post, Comment.new], remote: true) do |f|
+    =f.text_field :body, class: 'form-control input', placeholder: 'Scrivi un commento...'
+    =f.submit "Invia", class: 'btn btn-outline-primary button'
 
 
