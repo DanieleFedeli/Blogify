@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'font-awesome-sass'
 gem "wysiwyg-rails"
 gem 'thin'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'sqlite3'

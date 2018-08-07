@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: blogify123
+  api_key: '915878232675144'
+  api_secret: jSksGRt_NXUmS2xkgCny_FR0zcM
+  enhance_image_tag: true
+  static_image_support: true
+production:
+  cloud_name: blogify123
+  api_key: '915878232675144'
+  api_secret: jSksGRt_NXUmS2xkgCny_FR0zcM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: blogify123
+  api_key: '915878232675144'
+  api_secret: jSksGRt_NXUmS2xkgCny_FR0zcM
+  enhance_image_tag: true
+  static_image_support: false
