@@ -19,13 +19,8 @@ a:hover{
   text-decoration: none;
 }
 
-::-webkit-scrollbar {
-  width: 0px;  
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
+::-webkit-scrollbar{
+  display: none;
 }
 
 .content {
@@ -39,10 +34,10 @@ a:hover{
   display: grid;
   grid-template-columns: 5fr minmax(200px, 1fr);
   grid-template-rows: calc(100vh - 56px);
-  grid-gap: 120px;
   grid-template-areas:
     "content footer";
 }
+
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 1024px) {

@@ -22,15 +22,4 @@
     .form-group.text-center
       = f.submit 'Save', class: 'btn btn-primary'
 
-:javascript
-  $(document).ready(function(){
-    $('#pending_post_body').froalaEditor({
-      heightMin: 300,
-      heightMax: 500,
-      toolbarButtons: 	['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 
-                         'superscript', '|', 'paragraphFormat', 
-                         'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|', 'specialCharacters', 
-                         'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'spellChecker', 'help', 'html', 'insertLink'],
-    });
-  })
   
