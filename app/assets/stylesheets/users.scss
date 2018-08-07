@@ -1,0 +1,53 @@
+.registration{
+  background: white;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  margin: 2.5rem 2.5rem 2.5rem 15rem;
+  padding: 50px;
+}
+
+.registration input,
+.registration a .btn{
+  margin-bottom: 1rem;
+}
+
+.registration input[type=file]{
+  margin-bottom: 2rem;
+}
+
+.registration > a,
+.new_user > input.btn,
+.edit_user > img,
+.edit_user > .form-check-label,
+.edit_user > input[type=file]{
+  display: table;
+  margin: 0 auto;
+}
+
+.edit_user .form-check-input{
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .registration{
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin: 1rem 1rem 1rem 6rem;
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .registration{
+    background: white;
+    border: 0px;
+    border-radius: 0px;
+    margin: 0rem;
+    padding: 25px;
+  }
+
+  .registration h2{
+    text-align: center;
+  }
+}

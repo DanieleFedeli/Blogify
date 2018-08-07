@@ -149,4 +149,16 @@
       "comments"
       "new_comment";
   }
+
+  .new_comment{
+    grid-area: new_comment;
+    display: grid;
+    grid-template-columns: 6fr;
+    grid-template-areas: "input";
+    max-height: 50px;
+  }
+
+  .new_comment .btn{
+    display: none;
+  }
 }

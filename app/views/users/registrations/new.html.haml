@@ -1,34 +1,23 @@
 
-.main-div.container-fluid#centerdiv
-  .row
-    .col-lg-12.col-md-12.col-sm-12.login-form
-      .panel
-        %h2 Sign up utente
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .form-group
-          %span
-            Username
-        .form-group
-          =f.text_field :username, autofocus: true, id: "inputUsername", class: "form-control", placeholder: "Username"
-        .form-group
-          %span 
-            Email
-        .form-group
-          =f.email_field :email, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
-        .form-group
-          - if @minimum_password_length
-            %span
-              Password
-            %em
-              (#{@minimum_password_length} characters minimum)
-        .form-group
-          =f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: "Password"
-        .form-group
-          = f.password_field :password_confirmation, autocomplete: "off", id: 'inputPasswordConfirmation', class: 'form-control', placeholder: "Password confirmation"
-        .form-group
-          =f.submit 'Signup', class: 'btn btn-primary'
-      = render "users/shared/links"
+.registration
+  %h2 Sign up utente
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %span
+      Username
+    =f.text_field :username, autofocus: true, id: "inputUsername", class: "form-control", placeholder: "Username"
+    %span 
+      Email
+    =f.email_field :email, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
+    - if @minimum_password_length
+      %span
+        Password
+      %em
+        (#{@minimum_password_length} characters minimum) 
+    =f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: "Password"
+    =f.password_field :password_confirmation, autocomplete: "off", id: 'inputPasswordConfirmation', class: 'form-control', placeholder: "Password confirmation"
+    =f.submit 'Signup', class: 'btn btn-primary btn-lg'
+  = render "users/shared/links"
 
 :javascript
   $(document).ready(function(){

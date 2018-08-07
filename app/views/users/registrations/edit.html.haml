@@ -1,36 +1,29 @@
-%br
-.main-div
+
+.registration
   %h2
     Edit #{resource_name.to_s.humanize}
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
     = devise_error_messages!
-    .form-group
-      = image_tag current_user.avatar.thumb.url
+    = image_tag current_user.avatar.thumb.url
     
     -if current_user.avatar.url.present?
-      .form-check
-        = f.label :remove_avatar, class: 'form-check-label' do
-          =f.check_box :remove_avatar, class: 'form-check-input'
-          Remove avatar
-    .form-group
-      .row
-      = f.label :avatar, class: 'custom-file' do
-        = f.file_field :avatar, class: 'form-control btn'
-        = f.hidden_field :avatar_cache
-    .form-group
-      .row
-      = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-    .form-group
-      .row
-      = f.label :password
-      %i (leave blank if you don't want to change it)
-      = f.password_field :password, autocomplete: "off", class: 'form-control'
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-    .form-group
-      = f.submit "Update", class: 'btn btn-outline-primary'
-      =link_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete do
-        %btn.btn.btn-outline-danger
-          Cancel my account
+      = f.label :remove_avatar, class: 'form-check-label' do
+        =f.check_box :remove_avatar, class: 'form-check-input'
+        Remove avatar
+    = f.label :avatar, class: 'custom-file' do
+      = f.file_field :avatar, class: 'form-control btn'
+      = f.hidden_field :avatar_cache
+
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+    = f.label :password
+    %i (leave blank if you don't want to change it)
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+  
+    = f.submit "Update", class: 'btn btn-outline-primary'
+    =link_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete do
+      %btn.btn.btn-outline-danger
+        Cancel my account
   = link_to "Back", :back
