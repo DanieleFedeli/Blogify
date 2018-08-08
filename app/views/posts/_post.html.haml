@@ -45,7 +45,11 @@
         -else
           Comment
         %i.fas.fa-comment
-  .comments_list{id: "#{post.id}"}
+  -if current_user
+    .comments_list{id: "#{post.id}"}
+  -else
+    %strong
+      Log in per vedere i commenti
   =form_for([post, Comment.new], remote: true) do |f|
     =f.text_field :body, class: 'form-control input', placeholder: 'Scrivi un commento...'
     -if current_user
