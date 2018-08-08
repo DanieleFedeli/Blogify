@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=dk6xyk2jn1zddb4nvdud54uk8jtosk6ju4zwmymjmjvkvzq3"></script>
   %body
     = render 'layouts/navbar'
     /= render 'layouts/sidemenu'
@@ -24,16 +25,6 @@
         = yield
 
 :javascript
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '408791222974805',
-      xfbml      : true,
-      version    : 'v3.1'
-    });
-  
-    FB.AppEvents.logPageView();
-  
-  };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -42,6 +33,16 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '408791222974805',
+      xfbml      : true,
+      version    : 'v3.1'
+    });
+  
+    FB.AppEvents.logPageView();  
+  };
 
   function load_more(id){
     var value = parseInt($('#47').find('#page_num').attr('value')) + 1;

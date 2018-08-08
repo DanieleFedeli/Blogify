@@ -18,3 +18,8 @@
   =f.text_area  'body', class: 'form-control', rows: '20'
   =f.submit 'Save', class: 'btn btn-primary btn-lg'
 
+:javascript
+  tinymce.init({
+    selector: '#pending_post_body',
+    skin: 'lightgray'
+  });
