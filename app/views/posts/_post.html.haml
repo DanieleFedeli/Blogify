@@ -45,23 +45,14 @@
         -else
           Comment
         %i.fas.fa-comment
-  .comments_list
-    -if post.comments.count < 1
-      %em Nessun commento
-    -post.comments.each do |c|
-      .comment_div.border-bottom.border-top
-        .comment
-          =link_to c.user, title: c.user.username do
-            =image_tag c.user.avatar.thumbnail.url, class: 'avatar_comment my-auto rounded-circle'
-          .body_comment
-            =simple_format c.body
-        %small.date_time_comment
-          =c.created_at.strftime("%d/%m/%Y %k:%M")
-          -if current_user && (post.user == current_user || current_user == c.user || current_user.admin?)        
-            =link_to [post, c], method: :delete, title: 'Delete comment' do
-              %i.fas.fa-times
+  .comments_list{id: "#{post.id}"}
   =form_for([post, Comment.new], remote: true) do |f|
     =f.text_field :body, class: 'form-control input', placeholder: 'Scrivi un commento...'
-    =f.submit "Invia", class: 'btn btn-outline-primary button'
+    -if current_user
+      =f.submit "Invia", class: 'btn btn-outline-primary button'
+    -else
+      =link_to new_user_session_path do
+        %btn.btn.btn-outline-primary.button
+          Invia
 
 

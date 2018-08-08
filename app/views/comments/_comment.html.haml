@@ -1,0 +1,11 @@
+.comment
+  =link_to comment.user, title: comment.user.username, class: 'avatar_comment' do
+    =image_tag comment.user.avatar.thumbnail.url, class: 'avatar_comment rounded-circle'
+  .body_comment
+    %span
+      =simple_format comment.body
+    %small.date_time_comment
+      =comment.created_at.strftime("%d/%m/%Y %k:%M")
+      -if current_user && (@post.user == current_user || current_user == comment.user || current_user.admin?)        
+        =link_to [@post, comment], method: :delete, title: 'Delete comment' do
+          %i.fas.fa-times

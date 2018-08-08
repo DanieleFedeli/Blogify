@@ -32,10 +32,10 @@ a:hover{
 .site-container{
   background: #e9ebee;
   display: grid;
-  grid-template-columns: 5fr minmax(200px, 1fr);
+  grid-template-columns: minmax(200px, 1fr) 5fr;
   grid-template-rows: calc(100vh - 56px);
   grid-template-areas:
-    "content footer";
+    "footer content";
 }
 
 

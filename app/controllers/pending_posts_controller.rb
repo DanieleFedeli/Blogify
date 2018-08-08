@@ -30,9 +30,6 @@ class PendingPostsController < ApplicationController
     respond_to do |format|
       @pending_post.tag_list = pending_post_params[:tag_list]
       if @pending_post.save
-        if @pending_post.user.admin?
-          @pending_post.accept
-        end
         format.html { redirect_to root_url, notice: 'Pending post was successfully created.' }
         format.json { render :show, status: :created, location: @pending_post }
       else

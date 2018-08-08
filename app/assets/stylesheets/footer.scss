@@ -122,12 +122,12 @@ ul.logos-list{
   
   .logos-list > li > .fa{
     font-size: 2rem;
-    transition: unset;
+    transition: none;
     display: inherit;
   }
   
   .logos-list > li:hover > .fa:hover{
-    font-size: unset;
+    font-size: 2rem;
   }
 
   .copyright{

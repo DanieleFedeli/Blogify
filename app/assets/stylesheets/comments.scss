@@ -9,8 +9,10 @@
 .comment{
   display: grid;
   grid-template-columns: 1fr 6fr;
+  grid-column-gap: 0.5rem;
   grid-template-areas:
-    "avatar body"
+    "avatar body";
+  margin-bottom: 1rem;
 }
 
 .avatar_comment{
@@ -20,21 +22,43 @@
 }
 
 .body_comment{
+  border-radius: 5px;
+  background: #eff1f3;
   width: 100%;
   grid-area: body;
-  margin-top: 1rem;
+  border: 1px solid #d7d8da;
   padding-left: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 
+    "info"
+    "text";
+}
+
+.body_comment span{
+  grid-area: text;
 }
 
 .date_time_comment{
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  grid-area: info;
+}
+
+@media screen and (max-width: 1024px) {
+  .comment{
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 0.25rem;
+  }
+
+  .body_comment{
+    word-break: break-all;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .comment{
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 0.25rem;
   }
 
   .body_comment{

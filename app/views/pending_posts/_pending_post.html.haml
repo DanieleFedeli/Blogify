@@ -1,34 +1,21 @@
-.container.post_container.main-div.mx-auto.my-5
-  .row.title_container.my-2
-    %h3.mx-auto
-      =link_to pending_post.title, post_path(pending_post.id)
-  .row.tag_continer.border-bottom.pb-2
-    .col-6.text-left
-      Autore:
-      =link_to pending_post.user.username, pending_post.user
-    .col-6.text-right
-      Inviato il 
-      =pending_post.created_at.strftime("%d %m %Y")
-  .row.tag_container.text-center
-    Tags: 
+.post_container
+  -if current_user && current_user.admin
+    =link_to pending_post, method: :delete, title: 'Delete pending_post' do
+      %i.fas.fa-times.delete
+  .title
+    %h3
+      =link_to pending_post.title, pending_post_path(pending_post.id)
     =raw pending_post.tag_list.map{ |t| link_to t, tag_path(t), class: 'badge badge-light badge-tags' }.join(" ")
-  .row.body_container
-    .col-lg-12
-      =raw pending_post.body
-  .row.border-top.footer_post
-    .col-6
-      .row
-        .col-6  
-          %h6.my-auto.py-2
-            Autore:
-            =link_to pending_post.user.username, pending_post.user
-        .col-6.text-right.my-auto
-          =link_to 'Accetta post', action: "accept", pending_post_id: pending_post.id
-    .col-6
-      .row
-        .col-6.text-left.my-auto
-          =link_to 'Rifiuta post', pending_post, method: :delete
-        .col-6.text-right
-          %h6.my-auto.py-2.created_at
-            Inviato il 
-            =pending_post.created_at.strftime("%d %m %Y")
+  .body_container
+    =pending_post.body.html_safe
+  .info
+    .author.mb-2
+      Autore:
+      =link_to pending_post.user.username, pending_post.user 
+      %small
+        (
+        =pending_post.created_at.strftime("%d %m %Y")
+        )
+    .likes_comments
+      =link_to 'Accetta Post', action: "accept", pending_post_id: pending_post.id
+      =link_to 'Rifiuta Post', pending_post, method: :delete

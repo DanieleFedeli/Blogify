@@ -42,3 +42,20 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  function load_more(id){
+    var value = parseInt($('#47').find('#page_num').attr('value')) + 1;
+    $.getScript(getRightUrl()+'/posts/'+id+'/comments?page='+value);
+  }
+
+  $(document).ready(function(){ 
+    for(var i = 0; i < $('.comments_list').length; i++){
+      var length = $('.comments_list')[i].innerHTML.length;
+      if(length < 1){
+        var id = $('.comments_list')[i].id;
+        var url = getRightUrl()+'/posts/'+id+'/comments';
+        $('#'+id).html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />')
+        $('#'+id).load(url);
+      } 
+    }
+  })

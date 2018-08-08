@@ -7,7 +7,7 @@
   background: white;
   border: 1px solid #cccccc;
   border-radius: 5px;
-  margin: 2.5rem 2.5rem 2.5rem 15rem;
+  margin: 1rem 10rem 0px 5rem;
   padding: 50px;
 }
 
@@ -47,7 +47,7 @@
   grid-row-gap: 2rem;
   border-radius: 2px;
   background: white;
-  margin: 30px 0px 0px 10%;
+  margin: 1rem 2rem 0px 5rem;
   padding: 50px 30px 70px 30px;
 }
 
@@ -119,9 +119,9 @@
     background: white;
     border: 1px solid #cccccc;
     border-radius: 5px;
-    
-    margin: 1rem 1rem 1rem 6rem;
-    padding: 25px;
+    justify-self: center;
+    align-self: center;
+    margin: 5rem;
   }
   /************************************/
   
@@ -136,7 +136,7 @@
     grid-row-gap: 2rem;
     border-radius: 2px;
     background: white;
-    margin: 0px !important;
+    margin: 1rem 2rem 0px 5rem;
     padding: 50px 30px 70px 30px;
   }
 

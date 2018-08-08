@@ -1,6 +1,16 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments.page(params[:page]).per(8)
+    render :layout => false
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   # POST /comments
   # POST /comments.json
   def create
