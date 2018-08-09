@@ -74,6 +74,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def followers
+    @user = User.find(params[:user_id])
+    @followers = @user.followers
+  end
+
+  def followings
+    @user = User.find(params[:user_id])
+    @followings = @user.followings
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

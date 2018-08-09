@@ -1,0 +1,6 @@
+.followers-followings
+  -if @followers.empty?
+    %Strong
+      Nessun follower
+  -@followers.each do |f|
+    =render 'followers_followings', f.followed

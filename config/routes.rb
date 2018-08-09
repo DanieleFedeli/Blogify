@@ -14,11 +14,17 @@ Rails.application.routes.draw do
     get 'accept' => 'pending_posts#accept'
   end
 
-  get 'tags/:tag', to: 'posts#index', as: :tag
-  resources :users
+  resources :users do
+    get 'followings' => 'users#following'
+    get 'followers' => 'users#followers'
+  end
+  
   resources :posts do
     resources :comments
     resources :likes
   end
-  
+
+  resources :relationships, only: [:create, :destroy]
+
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end

@@ -17,6 +17,29 @@
         (
         =@user.created_at.strftime("%d/%m/%Y")
         )
+  .user-stats
+    %strong
+      Posts
+    %strong
+      Followers
+    %strong
+      Seguiti
+    %span.posts
+      =@user.posts.count
+    %span.followers
+      =link_to user_followers_path(@user) do 
+        =@user.followers.count
+    %span.following
+      =link_to user_followings_path(@user) do 
+        =@user.following.count
+
+    -unless current_user == @user
+      .follow-unfollow
+        -if current_user && current_user.following?(@user)
+          =render 'relationships/unfollow'
+        -else
+          =render 'relationships/follow'
+
   .user-posts
     -@posts.each do |post|
       =render 'user_post', post: post
