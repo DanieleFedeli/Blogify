@@ -61,21 +61,7 @@
       } 
     }
 
-  $("img").each( function () 
-    {
-      var _this = $(this);
-      
-      $.ajax({
-        url:$(this).attr('src'),
-        type:'HEAD',
-        async: false,
-        error:
-          function(e)
-          {
-            if (e.status == '404') {
-              $(_this).attr('src',['https://blogify123.herokuapp.com/assets/Placeholder-709ddea8090ccef7835963d0cfa061276b412c3f3fab5128aff79b266989f3ba.png']);
-            }
-          }
-      });
-    });
+    $('img').error(function(){
+      this.src = '/assets/Placeholder-709ddea8090ccef7835963d0cfa061276b412c3f3fab5128aff79b266989f3ba.png';
+    })
   })
