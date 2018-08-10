@@ -60,4 +60,22 @@
         $('#'+id).load(url);
       } 
     }
+
+  $("img").each( function () 
+    {
+      var _this = $(this);
+      
+      $.ajax({
+        url:$(this).attr('src'),
+        type:'HEAD',
+        async: false,
+        error:
+          function(e)
+          {
+            if (e.status == '404') {
+              $(_this).attr('src',['http://localhost:3000/assets/Placeholder-709ddea8090ccef7835963d0cfa061276b412c3f3fab5128aff79b266989f3ba.png']);
+            }
+          }
+      });
+    });
   })
