@@ -1,6 +1,6 @@
 
 .profile
-  =cl_image_tag @user.avatar.standard.url, class: 'img-thumbnail'
+  =image_tag @user.avatar.standard.url, class: 'img-thumbnail'
   .user-info
     %h3
       =@user.username
@@ -30,7 +30,7 @@
       =link_to user_followers_path(@user) do 
         =@user.followers.count
     %span.following
-      =link_to user_followings_path(@user) do 
+      =link_to user_following_path(@user) do 
         =@user.following.count
 
     -unless current_user == @user

@@ -1,6 +1,6 @@
 .registration
   %h2 Sign in utente
-  %p Log in wiht your email
+  %p Log in with your email
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'Login'}) do |f| 
     =f.email_field :email, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email Address"
     =f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: "Password"
@@ -9,8 +9,3 @@
       = f.label :remember_me
     =f.submit 'Login', class: 'btn btn-primary'
   = render "users/shared/links"
-
-:javascript
-  $(document).ready(function(){
-    $('.main-div').css("max-width", '600px').addClass('mx-auto');
-  });

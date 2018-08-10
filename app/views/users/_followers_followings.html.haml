@@ -1,2 +1,5 @@
 .follower-following
-  =img_tag @user.avatar.thumb.url
+  =cl_image_tag user.avatar.url, class: 'rounded-circle'
+  %span.rel-username
+    =link_to user do
+      =user.username
