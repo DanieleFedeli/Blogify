@@ -8,5 +8,9 @@
 
 @users = User.all
 @users.each do |u|
-  u.active_relationships.create(followed_id: 3)
+  u.active_relationships.create(followed_id: 1)
+end
+
+@users.each do |u|
+  u.avatar = nil
 end
