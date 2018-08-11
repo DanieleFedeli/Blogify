@@ -1,5 +1,6 @@
 
 $("##{@post.id}").find('.div_comments').append('#{j render @comments.page(params[:page]).per(8)}');
+$("##{@post.id}").find('#page_num').attr('value', '#{params[:page]}');
 - if !@comments.next_page
   $('.infinite-scrolling-comments').remove();
   $('##{@post.id}').append('<span> Commenti terminati</span>');

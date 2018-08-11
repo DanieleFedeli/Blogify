@@ -1,6 +1,6 @@
 .div_comments
-  -@comments.each do |c|
-    =hidden_field_tag :page_num, '1'
+  =hidden_field_tag :page_num, '1'
+  -@comments.each do |c|  
     =render c
 
 -if @comments.next_page

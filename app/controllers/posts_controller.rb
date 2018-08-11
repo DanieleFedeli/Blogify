@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     elsif params[:query]
       @posts = Post.where('title LIKE ?', "%#{params[:query]}").page(params[:page]).per(4)
     else
-      @posts = Post.page(params[:page]).per(4)
+      @posts = current_user.feed.page(params[:page]).per(4)
     end
 
     respond_to do |format|

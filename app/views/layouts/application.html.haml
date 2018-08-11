@@ -46,7 +46,8 @@
   };
 
   function load_more(id){
-    var value = parseInt($('#47').find('#page_num').attr('value')) + 1;
+    var value = parseInt($('#'+id).find('#page_num').attr('value')) + 1;
+    console.log(value);
     $.getScript(getRightUrl()+'/posts/'+id+'/comments?page='+value);
   }
 

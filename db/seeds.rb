@@ -8,5 +8,8 @@
 
 @users = User.all
 @users.each do |u|
-  u.avatar = nil
+  u.remove_avatar!
+  u.remove_avatar = true
+  u.save
+  u.reload
 end

@@ -42,6 +42,13 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids}) 
+                OR user_id = :user_id", user_id: id)
+  end
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -55,12 +62,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
-      Cloudinary::Uploader.upload(auth[:info][:image], 
-        pulic_id: user.username,
-        :eager => [
-          {:width => 300, :height => 300, :crop => :limit}, 
-          {:width => 100, :height => 100, :crop => :limit}
-        ])
+      user.remote_url = auth.info.image
     end
   end
   
