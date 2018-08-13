@@ -57,7 +57,7 @@ class User < ApplicationRecord
     ON 		x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
     WHERE 	users.id <> ? AND users.id = y.followed_id
     AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
-    GROUP BY y.followed_it
+    GROUP BY y.followed_id
     ORDER BY common_follower DESC
     LIMIT 20
     ", id, id, id]) & User.all
