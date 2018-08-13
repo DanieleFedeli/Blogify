@@ -11,7 +11,7 @@
         %td= link_to user.username, user
         %td
           E' seguito da 
-          =user.common 
+          =user.common_follower
           dei tuoi following
         %td= link_to 'Edit', edit_user_registration_path(user)
         %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }

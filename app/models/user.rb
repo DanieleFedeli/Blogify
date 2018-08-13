@@ -51,15 +51,16 @@ class User < ApplicationRecord
   # FOLLOWED_ID: COLUI CHE E' SEGUITO
   # FOLLOWER_ID: COLUI CHE SEGUE
   def suggested_friends
-    User.find_by_sql(["
-      SELECT 	users.*, count(y.followed_id) as common
-      FROM  	relationships x INNER JOIN relationships y
-      ON 		x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
-      WHERE 	users.id <> ? AND users.id = y.followed_id AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
-      GROUP BY users.id
-      ORDER BY common DESC
-      LIMIT 20
-    ", id, id, id])
+    User.find_by_sql(["    
+    SELECT 	users.*, count(*) as common_follower, y.followed_id as suggested_followed_id
+    FROM  	relationships x INNER JOIN relationships y
+    ON 		x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
+    WHERE 	users.id <> ? AND users.id = suggested_followed_id
+    AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
+    GROUP BY suggested_followed_id
+    ORDER BY common_follower DESC
+    LIMIT 20
+    ", id, id, id]) & User.all
 
   end
 
