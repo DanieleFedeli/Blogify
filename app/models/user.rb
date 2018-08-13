@@ -60,7 +60,7 @@ class User < ApplicationRecord
     GROUP BY y.followed_id, users.id
     ORDER BY common_follower DESC
     LIMIT 20
-    ", id, id, id]) + User.all
+    ", id, id, id])
 
   end
 
