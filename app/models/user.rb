@@ -51,7 +51,7 @@ class User < ApplicationRecord
   # FOLLOWED_ID: COLUI CHE E' SEGUITO
   # FOLLOWER_ID: COLUI CHE SEGUE
   def suggested_friends
-    User.find_by_sql("[
+    User.find_by_sql(["
       SELECT 	users.*, count(y.followed_id) as common
       FROM  	relationships x INNER JOIN relationships y
       ON 		x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
