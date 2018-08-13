@@ -1,0 +1,25 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this pending_post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+  %h3.text-center
+    Titolo
+    =f.text_field 'title', class: 'form-control'
+  
+  =f.label :tags, 'Tags (Seprate dalla virgola)'
+  =f.text_field :tag_list, class: 'form-control', value: f.object.tag_list.to_s
+  %span
+    Testo
+    %em
+      (minimo 128 caratteri)
+  =f.text_area  'body', class: 'form-control', rows: '20'
+  =f.submit 'Save', class: 'btn btn-primary btn-lg'
+
+:javascript
+  tinymce.init({
+    selector: '#post_body',
+    skin: 'lightgray'
+  });

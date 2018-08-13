@@ -15,10 +15,6 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-
-  resources :pending_posts do
-    get 'accept' => 'pending_posts#accept'
-  end
   
   resources :posts do
     resources :comments

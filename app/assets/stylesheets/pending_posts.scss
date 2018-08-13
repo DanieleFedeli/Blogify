@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .new_post{
-  background: white;
-  background: white;  border: 1px solid #cccccc;
-  border-radius: 5px;
+  background: white;  
   margin: 2.5rem 10rem 2.5rem 5rem;
   padding: 50px;
 }
@@ -23,8 +21,6 @@
 @media screen and (max-width: 1024px){
   .new_post{
     background: white;
-    background: white;  border: 1px solid #cccccc;
-    border-radius: 5px;
     margin: 2.5rem 2.5rem 2.5rem 2.5rem;
     padding: 35px;
   }
@@ -33,8 +29,6 @@
 @media screen and (max-width: 600px){
   .new_post{
     background: white;
-    background: white;  border: 1px solid #cccccc;
-    border-radius: 5px;
     margin: 0rem;
     padding: 25px;
   }

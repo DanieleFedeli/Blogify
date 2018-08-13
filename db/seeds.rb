@@ -7,9 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 @users = User.all
-@users.each do |u|
-  u.remove_avatar!
-  u.remove_avatar = true
-  u.save
-  u.reload
+
+1000.times do |index|
+  User.create!(email: "#{index}ciaociao@gmail.com", username: "Bellali#{index}", password: "ciaociao", password_confirmation: "ciaociao") unless User.exists?(email: "#{index}ciaociao@gmail.com")
+end
+
+puts "CREATI UTENTI"
+
+User.random_records(185).each_with_index do |u, index|
+  puts "Processo #{u.id}"
+  User.random_records(25).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id
+    puts "ADESSO #{u.id} SEGUE #{following.id}"}
+  puts "STILL #{185 - index - 1} to go"
 end

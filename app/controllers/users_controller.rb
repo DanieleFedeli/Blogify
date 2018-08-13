@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @users = current_user.suggested_friends
+    logger.debug "#{@users}"
+  end
   # GET /users/1
   # GET /users/1.json
   def show
-    @posts = @user.posts.page(params[:page]).per(12)
+    @posts ||= @user.posts.page(params[:page]).per(12)
     respond_to do |format|
       format.html
       format.js
@@ -13,7 +17,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user ||= User.new
   end
 
   # GET /users/1/edit
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user ||= User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -69,19 +73,19 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(params[:user_id])
+    @user ||= User.find(params[:user_id])
     @followers = @user.followers
   end
 
   def following
-    @user = User.find(params[:user_id])
+    @user ||= User.find(params[:user_id])
     @following = @user.following
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user ||= User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

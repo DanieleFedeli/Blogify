@@ -42,11 +42,33 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # Ritorna tutti gli amici suggeriti.
+  #   Condizioni:
+  #     Followers in comune
+  #     Following in comune
+  # RELATIONSHIPS X RELAZIONI DELL'UTENTE IN QUESTIONE
+  # RELATIONSHIPS Y RELAZIONI DI ALTRI UTENTI
+  # FOLLOWED_ID: COLUI CHE E' SEGUITO
+  # FOLLOWER_ID: COLUI CHE SEGUE
+  def suggested_friends
+    following_ids = "SELECT followed_id FROM relationships 
+                     WHERE follower_id = :user_id"
+    User.find_by_sql("
+      SELECT 	users.*, count(y.followed_id) as common
+      FROM  	relationships x INNER JOIN relationships y
+      ON 		x.follower_id = 3 AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
+      WHERE 	users.id = y.followed_id AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = 3)
+      GROUP BY users.id
+      ORDER BY common DESC
+      LIMIT 20
+    ")
+    
+  end
+
   def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE  follower_id = :user_id"
-    Post.where("user_id IN (#{following_ids}) 
-                OR user_id = :user_id", user_id: id)
+    following_ids = "SELECT followed_id FROM relationships 
+                     WHERE follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
   end
 
   def self.new_with_session(params, session)

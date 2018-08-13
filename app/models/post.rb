@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   acts_as_taggable
 
   validates :title, presence: true, length: { in: 3..32}  
-  validates :body, presence: true, length: { minimum: 128 }
+  validates :body, presence: true
 
   default_scope -> { order(created_at: :desc)}
 end

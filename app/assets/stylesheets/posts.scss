@@ -1,11 +1,21 @@
 .title{
   grid-area: title;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .title h3{
   text-align: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.title h3::before, .title h3::after{
+  content: '';
+  height: .1em;
+  margin: .1em;
+  flex: 1;
+  border: solid #cccccc;
+  border-width: .05em 0;
 }
 
 .posts > span{
@@ -75,13 +85,9 @@
     "comments new_comment";
 }
 
-.title h4{
-  text-align: center;
-}
 @media screen and (max-width: 1024px) {
   .title{
     grid-area: title;
-    margin-left: auto;
   }
   
   .info{
@@ -165,5 +171,11 @@
 
   .new_comment .btn{
     display: none;
+  }
+  
+  .delete{
+    position: absolute;
+    top: 10px;
+    right: 15px;
   }
 }

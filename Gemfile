@@ -25,6 +25,7 @@ gem 'font-awesome-sass'
 gem "wysiwyg-rails"
 gem 'thin'
 gem 'cloudinary'
+gem 'quick_random_records'
 
 group :development, :test do
   gem 'sqlite3'
