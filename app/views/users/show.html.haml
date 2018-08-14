@@ -1,5 +1,5 @@
 
-.profile
+.profile{id: "#{@user.id}"}
   =image_tag @user.avatar.standard.url, class: 'img-thumbnail'
   .user-info
     %h3
@@ -36,10 +36,9 @@
     -unless current_user == @user
       .follow-unfollow
         -if current_user && current_user.following?(@user)
-          =render 'relationships/unfollow'
+          =render 'relationships/unfollow', user: @user
         -else
-          =render 'relationships/follow'
-
+          =render 'relationships/follow', user: @user
   .user-posts
     -@posts.each do |post|
       =render 'user_post', post: post

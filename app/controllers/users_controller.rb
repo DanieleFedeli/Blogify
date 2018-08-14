@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = current_user.suggested_friends.take(20)
-    logger.debug "#{@users}"
-  end
   # GET /users/1
   # GET /users/1.json
   def show

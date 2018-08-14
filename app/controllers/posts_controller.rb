@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    
   end
 
   def create
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @users = current_user.suggested_friends.take(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(4)
     elsif params[:query]

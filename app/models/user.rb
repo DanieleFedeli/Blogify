@@ -52,10 +52,10 @@ class User < ApplicationRecord
   # FOLLOWER_ID: COLUI CHE SEGUE
   def suggested_friends
     User.find_by_sql(["    
-    SELECT 	users.*, count(*) as common_follower, y.followed_id
-    FROM  	relationships x INNER JOIN relationships y
-    ON 		x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
-    WHERE 	users.id <> ? AND users.id = y.followed_id
+    SELECT users.*, count(*) as common_follower, y.followed_id
+    FROM relationships x INNER JOIN relationships y
+    ON x.follower_id = ? AND y.follower_id <> x.follower_id AND y.follower_id = x.followed_id, users
+    WHERE users.id <> ? AND users.id = y.followed_id
     AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
     GROUP BY y.followed_id, users.id
     ORDER BY common_follower DESC

@@ -60,12 +60,14 @@ a:hover{
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+  
 
   .content{
     max-height: unset;
   }
 
   .site-container{
+    background-color: white;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;

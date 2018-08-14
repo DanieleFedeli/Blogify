@@ -8,10 +8,6 @@
         %a.nav-link{:href => "/"}
           Home
           %span.sr-only (current)
-      %li.nav-item
-        =link_to 'Posts', posts_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'Users', users_path, class: 'nav-link'
       -if current_user
         %li.nav-item
           =link_to 'My profile', user_path(current_user), class: 'nav-link'

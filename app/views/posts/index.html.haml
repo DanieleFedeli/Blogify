@@ -1,5 +1,28 @@
 
 .posts
+  -if !@users.empty?
+    #suggested-users.carousel.slide{"data-ride" => "carousel", "data-type" => "multi"}
+      .carousel-inner{:role => "listbox"}
+        -@users.each_with_index do |u, index|
+          -if index == 0  
+            .carousel-item.active{id: "#{u.id}"}
+          -else
+            .carousel-item{id: "#{u.id}"}
+              .user-card
+                =image_tag u.avatar.url, class: 'img-profile'
+                =link_to u, class: 'card-title' do
+                  =u.username
+                %small.reason
+                  =u.common_follower 
+                  following in comuner
+                .follow-unfollow
+                  =render 'relationships/follow', user: u
+      %a.carousel-control-prev{"data-slide" => "prev", :href => "#suggested-users", :role => "button"}
+        %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+        %span.sr-only Previous
+      %a.carousel-control-next.text-faded{"data-slide" => "next", :href => "#suggested-users", :role => "button"}
+        %span.carousel-control-next-icon{"aria-hidden" => "true"}
+        %span.sr-only Next
   -@posts.each do |pp|
     =render pp
 .infinite-scrolling
@@ -25,4 +48,28 @@
         }
       });
     }
+
+    $('#suggested-users').on('slide.bs.carousel', function(e) {
+      var $e = $(e.relatedTarget);
+      var idx = $e.index();
+      var itemsPerSlide = 6;
+      var totalItems = $('.carousel-item').length;
+
+      if (idx >= totalItems - (itemsPerSlide - 1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i = 0; i < it; i++) {
+          // append slides to end
+          if (e.direction == "left") {
+            $('.carousel-item').eq(i).appendTo('.carousel-inner');
+          } else {
+            $('.carousel-item').eq(0).appendTo('.carousel-inner');
+          }
+        }
+      }
+    });
+
+    $('#suggested-users').carousel({
+        interval: 5000
+    });
+
   })

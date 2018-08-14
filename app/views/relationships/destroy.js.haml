@@ -1,2 +1,2 @@
-$('.follow-unfollow').html('#{j render 'follow'}');
+$('##{@user.id}').find('.follow-unfollow').html('#{j render 'follow', user: @user}');
 $('.followers').find('a').text('#{@user.followers.count}');

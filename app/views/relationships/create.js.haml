@@ -1,2 +1,4 @@
-$('.follow-unfollow').html('#{j render 'unfollow'}');
+$('##{@user.id}').find('.follow-unfollow').html('#{j render 'unfollow', user: @user}');
 $('.followers').find('a').text('#{@user.followers.count}');
+
+if ($('##{@user.id}').children().attr('class') == 'user-card') $('##{@user.id}').fadeOut(500, function() {$(this).remove()});
