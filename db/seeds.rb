@@ -14,9 +14,8 @@ end
 
 puts "CREATI UTENTI"
 
-User.random_records(185).each_with_index do |u, index|
+User.all.each
   puts "Processo #{u.id}"
-  User.random_records(25).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id
+  User.random_records(184).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id
     puts "ADESSO #{u.id} SEGUE #{following.id}"}
-  puts "STILL #{185 - index - 1} to go"
 end
