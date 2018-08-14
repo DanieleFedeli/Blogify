@@ -88,4 +88,8 @@ class UsersController < ApplicationController
     def user_params
       params.fetch(:user, {})
     end
+
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
 end

@@ -1,4 +1,3 @@
-= cloudinary_js_config
 .registration
   %h2
     Edit #{resource_name.to_s.humanize}
@@ -27,10 +26,3 @@
       %btn.btn.btn-outline-danger
         Cancel my account
   = link_to "Back", :back
-
-:javascript
-  $(function() {
-    if($.fn.cloudinary_fileupload !== undefined) {
-      $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
-    }
-  });
