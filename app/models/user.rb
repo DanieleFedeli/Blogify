@@ -79,8 +79,8 @@ class User < ApplicationRecord
         JOIN users on user_id = users.id AND users.id = ?) AND
         users.id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
         GROUP BY users.id
-        HAVING common_tags >= 30
-        ORDER BY common_tags DESC      
+        HAVING "common_tags" >= 30
+        ORDER BY "common_tags" DESC      
     ',id, id, id])
   end
   def feed
