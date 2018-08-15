@@ -26,6 +26,7 @@ gem "wysiwyg-rails"
 gem 'thin'
 gem 'cloudinary'
 gem 'quick_random_records'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development, :test do
   gem 'sqlite3'

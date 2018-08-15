@@ -61,9 +61,13 @@ class User < ApplicationRecord
     ORDER BY common_follower DESC
     LIMIT 20
     ", id, id, id])
-
   end
 
+  def tag_in_common_friends
+    User.find_by_sql([
+      
+    ])
+  end
   def feed
     following_ids = "SELECT followed_id FROM relationships 
                      WHERE follower_id = :user_id"
