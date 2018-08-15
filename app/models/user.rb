@@ -79,8 +79,8 @@ class User < ApplicationRecord
         JOIN users on user_id = users.id AND users.id = ?) AND
         users.id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
         GROUP BY users.id
-        HAVING count(used.tags_name) >=15
-        ORDER BY count(used.tags_name) DESC      
+        HAVING count(used_tags.name) >=15
+        ORDER BY count(used_tags.name) DESC      
     ',id, id, id])
   end
   def feed
