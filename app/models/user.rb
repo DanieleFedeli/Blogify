@@ -65,12 +65,12 @@ class User < ApplicationRecord
   def tag_in_common_friends
     User.find_by_sql(["
       WITH used_tags AS(
-        SELECT tags.name, posts.user_id AS author
+        SELECT tags.name, posts.user_id AS 'author'
         FROM taggings JOIN tags ON tags.id = tag_id
         JOIN posts on taggable_id = posts.id
       )
         
-        SELECT users.*, count(used_tags.name) as common_tags
+        SELECT users.*, count(used_tags.name) as 'common_tags'
         FROM used_tags JOIN users on users.id = author
         WHERE users.id <> ? AND used_tags.name IN (
         SELECT tags.name 
