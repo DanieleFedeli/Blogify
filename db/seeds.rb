@@ -13,8 +13,8 @@
 
 #puts "CREATI UTENTI"
 
-User.all.each do |u|
-#  User.random_records(184).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id}
+User.first(50).each do |u|
+  #User.random_records(184).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id}
   12.times do
     u.posts.create do |post|
       post.title = Faker::Community.characters
