@@ -1,9 +1,9 @@
 
 .posts
-  -if !@users.empty?
+  -unless @users_suggested.empty?
     #suggested-users.carousel.slide{"data-ride" => "carousel", "data-type" => "multi"}
       .carousel-inner{:role => "listbox"}
-        -@users.each_with_index do |u, index|
+        -@users_suggested.each_with_index do |u, index|
           -if index == 0  
             .carousel-item.active{id: "#{u.id}"}
           -else
@@ -17,6 +17,18 @@
                   following in comuner
                 .follow-unfollow
                   =render 'relationships/follow', user: u
+        -@users_tags_common.each do |u|
+          .carousel-item{id: "#{u.id}"}
+            .user-card
+              =image_tag u.avatar.url, class: 'img-profile'
+              =link_to u, class: 'card-title' do
+                =u.username
+              %small.reason
+                Avete usato
+                =u.common_tags
+                tags uguali
+              .follow-unfollow
+                =render 'relationships/follow', user: u
       %a.carousel-control-prev{"data-slide" => "prev", :href => "#suggested-users", :role => "button"}
         %span.carousel-control-prev-icon{"aria-hidden" => "true"}
         %span.sr-only Previous

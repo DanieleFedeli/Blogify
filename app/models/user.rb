@@ -59,14 +59,29 @@ class User < ApplicationRecord
     AND y.followed_id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
     GROUP BY y.followed_id, users.id
     ORDER BY common_follower DESC
-    LIMIT 20
     ", id, id, id])
   end
 
   def tag_in_common_friends
-    User.find_by_sql([
-      
-    ])
+    User.find_by_sql(["
+      WITH used_tags AS(
+        SELECT tags.name, posts.user_id AS author
+        FROM taggings JOIN tags ON tags.id = tag_id
+        JOIN posts on taggable_id = posts.id
+      )
+        
+        SELECT users.*, count(used_tags.name) as common_tags
+        FROM used_tags JOIN users on users.id = author
+        WHERE users.id <> ? AND used_tags.name IN (
+        SELECT tags.name 
+        FROM taggings JOIN tags ON tags.id = tag_id 
+        JOIN posts on taggable_id = posts.id
+        JOIN users on user_id = users.id AND users.id = ?) AND
+        users.id NOT IN (SELECT followed_id FROM relationships WHERE follower_id = ?)
+        GROUP BY users.id
+        HAVING common_tags >= 30
+        ORDER BY common_tags DESC      
+    ",id, id, id])
   end
   def feed
     following_ids = "SELECT followed_id FROM relationships 

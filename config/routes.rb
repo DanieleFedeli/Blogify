@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     #unlocks: 'users/unlocks'
   }
 
-  resources :users do
+  resources :users, except: [:index] do
     get 'following' => 'users#following'
     get 'followers' => 'users#followers'
   end

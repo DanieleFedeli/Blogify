@@ -16,10 +16,10 @@
 User.random_records(200).all.each do |u|
 #  User.random_records(184).all.map { |following| u.follow(following) unless u.following?(following) unless following.id == u.id}
   puts "User: #{u.id}"
-  12.times do
+  1.times do
     u.posts.create do |post|
       post.title = Faker::Community.characters
-      post.body = Faker::Lorem.paragraph(10)
+      post.body = Faker::Lorem.sentence(25)
       list = []
       5.times do 
         list << Faker::RockBand.name

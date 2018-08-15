@@ -23,7 +23,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @users = current_user.suggested_friends.take(20)
+    
+    @users_suggested = current_user.suggested_friends.take(10)
+    @users_tags_common = current_user.tag_in_common_friends.take(10)
+
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(4)
     elsif params[:query]
