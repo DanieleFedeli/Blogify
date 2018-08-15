@@ -1,0 +1,18 @@
+.likes-modal{
+  display: grid;
+  grid-template-areas:
+   "."
+   ".";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 1em;
+}
+
+.user-like .img-profile{
+  height: 70px;
+}
+
+.modal-body{
+  max-height: 700px;
+  overflow-y: auto;
+}

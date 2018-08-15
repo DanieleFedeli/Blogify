@@ -34,7 +34,8 @@
           %br
           =raw post.likes.last(2).map{ |l| link_to l.user.username, l.user}.join(', ')
           -if post.likes.count > 2
-            and other #{post.likes.count - 2}
+            %a{:href => "#", "data-toggle": "modal", "data-target": "##{post.id}-modal"}          
+              and other #{post.likes.count - 2}         
           %em
             liked this  
       %br
@@ -59,4 +60,19 @@
         %btn.btn.btn-outline-primary.button
           Invia
 
-
+-if post.likes.count > 2
+  .modal.fade{id: "#{post.id}-modal"}
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title
+            %h5 Likes
+          %button.close{type: "button", "data-dismiss": "modal", "aria-label": "close"}
+            %span{"aria-hidden":"true"}
+              &times;
+        .modal-body.likes-modal
+          -post.likes.each do |l|
+            .user-like
+              =image_tag l.user.avatar.url, class: 'img-profile'
+              %strong
+                =l.user.username
