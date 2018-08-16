@@ -1,0 +1,2 @@
+module QueryPagesHelper
+end

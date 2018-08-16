@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'query_pages/index'
   devise_for :users, controllers: { 
     omniauth_callbacks: 'users/omniauth_callbacks',
     #sessions: 'users/sessions',
