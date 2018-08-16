@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#User.all.each do |u|
-#  u.destroy!
-#end
+User.all.each do |u|
+  u.destroy!
+end
 
-#100.times do 
-#  User.create!(username: Faker::Internet.username, email: Faker::Internet.safe_email, password: 'ciaociao123', password_confirmation: 'ciaociao123')
-#end
+100.times do 
+  User.create!(username: Faker::Internet.username, email: Faker::Internet.safe_email, password: 'ciaociao123', password_confirmation: 'ciaociao123')
+end
 
 User.all.each do
   10.times do
